@@ -97,6 +97,7 @@
     - [jQuery](#jQuery)
     - [Bootstrap，插件原理](#Bootstrap，插件原理)
     - [AngularJS](#AngularJS)
+    - [Vue](#Vue)
 - [算法](#算法)
     - [数组降维](#数组降维)
     - [数组去重](#数组去重)
@@ -126,7 +127,7 @@
 ---
 
 #### 关于前端是什么，以及需要学习什么，移步这里：
-[Front-End Developer Handbook](http://www.frontendhandbook.com)
+#### [Front-End Developer Handbook](http://www.frontendhandbook.com)
 
 ---
 
@@ -135,8 +136,24 @@
 #### docType
 
 - 混杂模式
+	- 触发条件：不加文档类型声明
 - 标准模式
+	- 触发条件：
+		- `<!DOCTYPE html>`
+		- `<!-- HTML 4.01 严格型 -->
+<!DOCTYPE HTML PUBLIC"-//W3C//DTD HTML4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">`
+		- `<!-- XHTML 1.0 严格型 -->
+<!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">`
 - 准标准模式
+	- 触发条件：
+		- `<!-- HTML 4.01 过渡型 -->
+<!DOCTYPE HTMLPUBLIC "-//W3C//DTD HTML 4.01Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">`
+		- `<!-- HTML 4.01 框架集型 -->
+<!DOCTYPE HTMLPUBLIC "-//W3C//DTD HTML 4.01Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">`
+		- `<!-- XHTML 1.0 过渡型 -->
+<!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">`
+		- `<!-- XHTML 1.0 框架集型 -->
+<!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">`
 
 #### 标签语义化
 
@@ -837,6 +854,10 @@ request.send(null);
 
 ### 浏览器部分
 
+#### 浏览器针对页面的渲染过程
+
+- [How browsers work](http://taligarsiel.com/Projects/howbrowserswork1.htm#Introduction)
+
 #### 各个浏览器内核
 
 - IE: Trident
@@ -954,9 +975,11 @@ request.send(null);
 - 独立作用域
 - 依赖注入
 - 循环监听
+- 同级控制器之间如何通信
+	- 使用`$rootScope`发送和接收
 - `ng-if`与`ng-hide/show`的区别
 	- `ng-if`为`true`的时候节点才会存在于DOM中
-	- `ng-show/hide`只是控制节点的显示和隐藏
+	- `ng-show/hide`只是控制节点的显示和隐藏，设置`display`属性
 - `factory`，`service`与`provider`的区别和关系
 	- 使用`factory`创建的服务，是一个对象，然后，将方法和属性定义在这个对象上，在返回这个对象，就可以供外部controller调用了
 	- 使用`service`创建的服务，是使用`new`进行实例化的，所以，方法和属性要定义在`this`上，并且这个服务会自动返回`this`
@@ -976,6 +999,12 @@ request.send(null);
 		- 主动设置索引
 		- 降低渲染的数据数量
 		- 数据扁平化
+
+### Vue
+
+- `v-if`与`v-show`的区别
+	- `v-show`控制节点的`display`属性，`v-if`为true的时候节点才会存在于DOM中
+	- 频繁切换`v-show`较好，如果在运行时条件不大可能改变`v-if`较好
 
 ---
 
