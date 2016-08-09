@@ -83,6 +83,7 @@
     - [关于浏览器缓存](#关于浏览器缓存)
 - [前端安全](#前端安全)
 - [自动化](#自动化)
+    - [webpack](#webpack)
     - [npm与bower的区别](#npm与bower的区别)
     - [gulp流与管道的概念](#gulp流与管道的概念)
     - [打包后静态资源路径的修改](#打包后静态资源路径的修改)
@@ -118,11 +119,15 @@
     - [CMD](#CMD)
     - [UMD](#UMD(通用模块定义，Universal Module Definition))
 - [Javascript设计模式](#Javascript设计模式)
+- [ES 2015](#ES 2015)
 - [NodeJS](#NodeJS)
 - [HTML5](#HTML5)
 - [CSS3](#CSS3)
 - [Websocket](#Websocket)
 - [Canvas](#Canvas)
+- [Angular2](#Angular2)
+- [React && React Native](#React && React Native)
+- [Functional Programming](#Functional Programming)
 
 ---
 
@@ -311,6 +316,9 @@
 #### 预处理器
 
 - Sass
+	- Ruby Sass 与 Lib Sass 的区别
+- Less
+- Stylus
 
 ---
 
@@ -892,6 +900,10 @@ request.send(null);
 
 ### 自动化
 
+### webpack
+
+- css loader 与 style loader 的区别
+
 #### npm与bower的区别
 
 - [bower与npm的不同点](https://github.com/Erichain/Front-End-Note/blob/master/前端自动化/diffBetweenBower%26Npm.md)
@@ -947,6 +959,8 @@ request.send(null);
 	- 服务器端响应http请求，客户端得到html代码
 	- 浏览器解析html代码，并请求html代码中的资源
 	- 浏览器对页面进行渲染呈现给用户
+- Get 与 Post 的区别
+	- [99%的人都理解错了HTTP中GET与POST的区别](http://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&mid=100000054&idx=1&sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd&utm_source=tuicool&utm_medium=referral)
 
 ---
 
@@ -1005,6 +1019,10 @@ request.send(null);
 - `v-if`与`v-show`的区别
 	- `v-show`控制节点的`display`属性，`v-if`为true的时候节点才会存在于DOM中
 	- 频繁切换`v-show`较好，如果在运行时条件不大可能改变`v-if`较好
+- Vue 如何为 input 的 onchange 事件添加延时
+- `$emit`, `$broadcast`, `$dispatch` 的区别
+	- 如何在两个同级的 component 之间通信
+- Vuex
 
 ---
 
@@ -1266,6 +1284,14 @@ function charCount( str ) {
 
 ---
 
+### ES 2015
+
+- 数组去重
+- Symbol
+- Set && Map
+- Arrow Function
+- Proxy
+
 ### NodeJS
 
 ### HTML5
@@ -1275,6 +1301,14 @@ function charCount( str ) {
 ### Websocket
 
 ### Canvas
+
+### Angular2
+
+### React && React Native
+
+### Functional Programming
+
+### Git
 
 ## Contribution
 
