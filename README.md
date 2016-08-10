@@ -169,7 +169,7 @@
 
 #### 块级标签，行内标签
 
-- 块级：div, ul, li, ol, table, th, tbody, tfoot, tr, pre, fieldset, form, h1-6, p等
+- 块级：div, ul, li, ol, table, th, tbody, tfoot, tr, pre, fieldset, form, h1-h6, p等
 - a, abbr, b, br, code, em, img, input, label, select, textarea, strong等
 
 #### meta标签
@@ -258,6 +258,12 @@
 
 - 双飞翼布局
 - 圣杯布局
+- 两列布局
+- 三列布局
+- 弹性布局
+- 流式布局
+- 瀑布流布局
+- 多列布局等高
 
 #### CSS优先级
 
