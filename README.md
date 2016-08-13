@@ -31,7 +31,6 @@
     - [定位](#定位)
     - [样式继承](#样式继承)
     - [z-index属性](#z-index属性)
-    - [IE浏览器的hack](#IE浏览器的hack)
     - [CSS sprite](#css-sprite)
     - [布局模型](#布局模型)
     - [CSS优先级](#CSS优先级)
@@ -236,19 +235,6 @@
 #### z-index属性
 
 - [理解 CSS 的 z-index 属性](https://segmentfault.com/a/1190000000460664)
-
-#### IE浏览器的hack
-
-- 条件hack
-	- `<!--[if IE]><![endif]-->`
-- 属性hack
-	- `_` IE6
-	- `*+`IE7
-	- `+`IE6/7
-	- `.`IE8
-- 选择符hack
-	- `*`IE7
-	- `_`IE6
 
 #### CSS sprite
 
