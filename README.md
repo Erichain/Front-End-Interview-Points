@@ -21,6 +21,7 @@
     - [doctype](#docType)
     - [标签语义化](#标签语义化)
     - [块级标签，行内标签](#块级标签，行内标签)
+    - [替换元素和非替换元素](#替换元素和非替换元素)
     - [meta标签](#meta标签)
     - [HTML代码优化](#HTML代码优化)
     - [搜索引擎优化SEO](#搜索引擎优化SEO)
@@ -170,6 +171,13 @@
 
 - 块级：div, ul, li, ol, table, th, tbody, tfoot, tr, pre, fieldset, form, h1-h6, p等
 - a, abbr, b, br, code, em, img, input, label, select, textarea, strong等
+
+#### 替换元素和非替换元素
+
+- 替换元素
+	- `img, object, iframe, video` 等。即元素本身没有实际内容，通过元素的标签和属性来显示内容
+- 非替换元素
+	- 大多数标签属于非替换元素，这部分标签把标签里的内容直接告诉浏览器显示出来
 
 #### meta标签
 
