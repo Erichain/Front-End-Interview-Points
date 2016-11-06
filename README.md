@@ -17,107 +17,17 @@
 ## 目录
 
 - [关于前端是什么，以及需要学习什么，移步这里](#关于前端是什么，以及需要学习什么，移步这里)
-- [HTML部分](#HTML部分)
-    - [doctype](#docType)
-    - [标签语义化](#标签语义化)
-    - [块级标签，行内标签](#块级标签，行内标签)
-    - [替换元素和非替换元素](#替换元素和非替换元素)
-    - [meta标签](#meta标签)
-    - [HTML代码优化](#HTML代码优化)
-    - [搜索引擎优化SEO](#搜索引擎优化SEO)
-- [CSS部分](#CSS部分)
-    - [浮动，清除浮动的方法和原理(4种方法)](#浮动，清除浮动方法的和原理(4种方法))
-    - [CSS块级格式化上下文](#CSS块级格式化上下文)
-    - [盒子模型(IE盒子模型的区别)](#盒子模型(IE盒子模型的区别))
-    - [定位](#定位)
-    - [样式继承](#样式继承)
-    - [z-index属性](#z-index属性)
-    - [CSS sprite](#css-sprite)
-    - [布局模型](#布局模型)
-    - [CSS优先级](#CSS优先级)
-    - [Flexbox](#Flexbox)
-    - [各个单位的区别(px, em, rem, 百分比)](#各个单位的区别(px, em, rem, 百分比))
-    - [居中](#居中)
-    - [link和@import的区别](#link和@import的区别)
-    - [如何将div与图片设置等宽，inline-block元素之间的空隙如何解决](#如何将div与图片设置等宽，inline-block元素之间的空隙如何解决)
-    - [CSS优化](#CSS优化)
-    - [预处理器](#预处理器)
-- [JS部分](#JS部分)
-    - [严格模式](#严格模式)
-    - [变量](#变量)
-    - [类型检测](#类型检测)
-    - [作用域](#作用域)
-    - [对象](#对象)
-    - [数组](#数组)
-    - [函数](#函数)
-    - [`new`操作符的原理](#`new`操作符的原理)
-    - [闭包](#闭包)
-    - [this](#this)
-    - [对象创建的模式和方法及区别](#对象创建的模式和方法及区别)
-    - [原型和继承](#原型和继承)
-    - [回调函数](#回调函数)
-    - [变量提升，函数声明提升](#变量提升，函数声明提升)
-    - [IIFE(立即执行函数)](#IIFE(立即执行函数))
-    - [事件](#事件)
-    - [call, apply, bind(手动实现)](#call, apply, bind(手动实现))
-    - [能力检测](#能力检测)
-    - [BOM](#BOM)
-    - [promise](#promise)
-    - [DOM 操作](#DOM-操作)
-    - [性能优化](#性能优化)
-    - [垃圾回收](#垃圾回收)
-    - [内存泄漏](#内存泄漏)
-    - [优雅降级和渐进增强](#优雅降级和渐进增强)
-    - [JSON](#JSON)
-    - [XMLHttpRequest对象](#XMLHttpRequest对象)
-    - [使用Javascript计算两个日期的时间差](#使用Javascript计算两个日期的时间差)
-    - [性能测试工具](#性能测试工具)
-    - [代码审查工具](#代码审查工具)
-    - [代码压缩](#代码压缩)
-    - [Javascript原生函数使用](#Javascript原生函数使用)
-    - [RESTful](#RESTful)
+- [HTML 部分](#HTML部分)
+- [CSS 部分](#CSS部分)
+- [JS 部分](#JS部分)
 - [浏览器部分](#浏览器部分)
-    - [各个浏览器内核](#各个浏览器内核)
-    - [sessionStorage，cookie，localStorage](#sessionStorage，cookie，localStorage)
-    - [浏览器的多个标签页之间如何通信](#浏览器的多个标签页之间如何通信)
-    - [关于浏览器缓存](#关于浏览器缓存)
 - [前端安全](#前端安全)
-- [自动化](#自动化)
-    - [webpack](#webpack)
-    - [npm与bower的区别](#npm与bower的区别)
-    - [gulp流与管道的概念](#gulp流与管道的概念)
-    - [打包后静态资源路径的修改](#打包后静态资源路径的修改)
-    - [gulp和grunt的区别](#gulp和grunt的区别)
-    - [测试工具](#测试工具)
+- [构建系统](#自动化)
 - [网络知识部分](#网络知识部分)
-    - [Ajax](#Ajax)
-    - [同源策略](#同源策略)
-    - [跨域处理(方法和区别)](#跨域处理(方法和区别))
-    - [HTTP基本知识](#HTTP基本知识)
 - [框架相关知识](#框架相关知识)
-    - [jQuery](#jQuery)
-    - [Bootstrap，插件原理](#Bootstrap，插件原理)
-    - [AngularJS](#AngularJS)
-    - [Vue](#Vue)
 - [算法](#算法)
-    - [数组降维](#数组降维)
-    - [数组去重](#数组去重)
-    - [对象深度复制](#对象深度复制)
-    - [各个类型的复制](#各个类型的复制)
-    - [排序](#排序)
-    - [去除首尾空格](#去除首尾空格)
-    - [统计字符数量](#统计字符数量)
 - [插件编写](#插件编写)
-    - [焦点轮播图](#焦点轮播图)
-    - [弹窗效果](#弹窗效果)
-    - [多级菜单](#多级菜单)
-    - [Tab效果](#Tab效果)
-    - [LightBox](#LightBox)
 - [Javascript模块化](#Javascript模块化)
-    - [CommonJS](#CommonJS)
-    - [AMD](#AMD)
-    - [CMD](#CMD)
-    - [UMD](#UMD(通用模块定义，Universal Module Definition))
 - [Javascript设计模式](#Javascript设计模式)
 - [ES 2015](#ES 2015)
 - [NodeJS](#NodeJS)
@@ -132,6 +42,7 @@
 ---
 
 #### 关于前端是什么，以及需要学习什么，移步这里：
+
 #### [Front-End Developer Handbook](http://www.frontendhandbook.com)
 
 ---
@@ -169,7 +80,7 @@
 
 #### 块级标签，行内标签
 
-- 块级：div, ul, li, ol, table, th, tbody, tfoot, tr, pre, fieldset, form, h1-h6, p等
+- 块级：div, ul, li, ol, table, th, tbody, tfoot, tr, pre, fieldset, form, h1-6, p等
 - a, abbr, b, br, code, em, img, input, label, select, textarea, strong等
 
 #### 替换元素和非替换元素
@@ -244,6 +155,7 @@
 
 - [理解 CSS 的 z-index 属性](https://segmentfault.com/a/1190000000460664)
 
+
 #### CSS sprite
 
 - 减少请求
@@ -268,7 +180,7 @@
 
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
-#### 各个单位的区别(px, em, rem, 百分比)
+#### 各个单位的区别(px, em, rem, 百分比, vw, vh, vmax, vmin)
 
 - [Understanding Font sizing in CSS: em – px – pt – percent – rem](https://www.narga.net/understanding-font-sizing-in-css-em-px-pt-percent-rem/)
 - [REM vs EM – The Great Debate](http://zellwk.com/blog/rem-vs-em/?utm_source=CSS-Weekly&utm_campaign=Issue-204&utm_medium=email)
@@ -289,7 +201,7 @@
 - 设置父元素`font-size`为0，再对里面的文字单独设置`font-size`
 - 全兼容的样式解决方法
 
-```css
+``` css
 .finally-solve {
     letter-spacing: -4px; /*根据不同字体字号或许需要做一定的调整*/
     word-spacing: -4px;
@@ -319,6 +231,15 @@
 	- Ruby Sass 与 Lib Sass 的区别
 - Less
 - Stylus
+- PostCSS
+
+#### CSS 规范，模块化
+
+- OOCSS
+- BEM
+- SMACSS
+
+[An Overview Of OOCSS BEM SMACSS](http://codetheory.in/an-overview-of-oocss-bem-smacss/)
 
 ---
 
@@ -380,7 +301,7 @@
 - 柯里化
 	- 概念：部分求值（Partial Evaluation），是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术
 
-```javascript
+``` javascript
 function currying( fn ) {
     var args = Array.prototype.slice.call(arguments, 1);
     return function () {
@@ -422,7 +343,7 @@ function currying( fn ) {
 - 特性
 - 经典例子：列表点击，弹出每一个的index
 
-```javascript
+``` javascript
 /* 错误做法 */
 var elems = document.getElementById('links').getElementsByTagName('li');
 
@@ -434,7 +355,7 @@ for ( var i = 0; i < elems.length; i++ ) {
 }
 ```
 
-```javascript
+``` javascript
 /* 正确的做法，使用闭包 */
 var elems = document.getElementById('links').getElementsByTagName('li');
 
@@ -458,7 +379,7 @@ for ( var i = 0; i < elems.length; i++ ) {
 
 - 工厂模式
 
-```javascript
+``` javascript
 /* 缺点：无法检测对象的类型 */
 var createPerson = function ( name, age, job ) {
 	var o = new Object();
@@ -474,7 +395,7 @@ var person1 = createPerson('Erichain', 21, 'Web');
 
 - 构造函数模式
 
-```javascript
+``` javascript
 /* 缺点：每个方法要在每个实例上重新创建一遍 */
 var Person = function ( name, age, job ) {
 	this.name = name;
@@ -487,7 +408,7 @@ var person1 = new Person('Erichain', 21, 'Web');
 
 - 原型模式
 
-```javascript
+``` javascript
 var Person = function () {};
 
 Person.prototype = {
@@ -502,7 +423,7 @@ var person1 = new Person();
 - 组合构造函数原型模式
 - 动态原型模式
 
-```javascript
+``` javascript
 var Person = function ( name, age, job ) {
 	this.name = name;
 	this.age = age;
@@ -526,7 +447,7 @@ var Person = function ( name, age, job ) {
 - 原型链
 - 借用构造函数
 
-```javascript
+``` javascript
 function Person( name ) {
 	this.name = name;
 }
@@ -559,7 +480,7 @@ function man() {
 - IIFE和自执行函数的区别
 - IIFE的几种表示方法
 
-```javascript
+``` javascript
 (function () {})();
 (function () {}());
 
@@ -578,7 +499,7 @@ function man() {
 - 事件对象(IE的区别)
 - 跨浏览器事件处理函数
 
-```javascript
+``` javascript
 var EventUtil = {
     getEvent: function ( event ) {
         return event ? event : window.event;
@@ -627,7 +548,7 @@ var EventUtil = {
 </ul>
 ```
 
-```javascript
+``` javascript
 var links = document.getElementById('links');
 
 // 使用之前定义的跨浏览器事件处理程序
@@ -657,7 +578,7 @@ EventUtil.addHandler(links, 'click', function ( event ) {
 - `call`与`apply`支持低版本浏览器，`bind`只支持高版本浏览器
 - `bind`原生代码实现
 
-```javascript
+``` javascript
 if ( !Function.prototype.bind ) {
     Function.prototype.bind = function ( oThis ) {
         if ( typeof this !== 'function') {
@@ -769,7 +690,7 @@ if ( !Function.prototype.bind ) {
 
 - 引用计数
 
-```javascript
+``` javascript
 /* 出现循环引用的例子 */
 function () {
 	var objectA = {},
@@ -801,7 +722,7 @@ function () {
 
 - 一段比较完整的使用原生Javascript实现ajax请求方法
 
-```javascript
+``` javascript
 function createRequestObject() {
     if ( window.XMLHttpRequest ) {
         return new XMLHttpRequest();
@@ -898,11 +819,13 @@ request.send(null);
 
 ---
 
-### 自动化
+### 构建系统
 
 ### webpack
 
 - css loader 与 style loader 的区别
+
+### Rollup
 
 #### npm与bower的区别
 
@@ -927,6 +850,7 @@ request.send(null);
 - Mocha
 - Karma
 - Jasmine
+- Jest
 
 ---
 
@@ -979,7 +903,7 @@ request.send(null);
 - 内联表单实现原理
 - Bootstrap组件实现原理
 
-#### AngularJS
+#### AngularJS 1.x
 
 - 双向绑定
 	- `$digest`循环
@@ -1023,6 +947,7 @@ request.send(null);
 - `$emit`, `$broadcast`, `$dispatch` 的区别
 	- 如何在两个同级的 component 之间通信
 - Vuex
+- 源码阅读
 
 ---
 
@@ -1036,7 +961,7 @@ request.send(null);
 
 - 最简单的方法
 
-```javascript
+``` javascript
 function removeDuplicate( arr ) {
     var len = arr.length,
         temp = [];
@@ -1052,7 +977,7 @@ function removeDuplicate( arr ) {
 
 #### 对象深度复制
 
-```javascript
+``` javascript
 function clone( Obj ) {   
         var buf;   
         if ( Obj instanceof Array ) {   
@@ -1078,7 +1003,7 @@ function clone( Obj ) {
 
 #### 各个类型的复制
 
-```javascript
+``` javascript
 function clone( obj ) {
 	var dest;
 	
@@ -1125,7 +1050,7 @@ function clone( obj ) {
 
 - 快速排序
 
-```javascript
+``` javascript
 function quickSort( arr ) {
     var left = [],
         right = [],
@@ -1151,7 +1076,7 @@ function quickSort( arr ) {
 
 - 冒泡排序
 
-```javascript
+``` javascript
 function bubbleSort( arr ) {
     var len = arr.length,
         temp;
@@ -1172,7 +1097,7 @@ function bubbleSort( arr ) {
 
 - 插入排序
 
-```javascript
+``` javascript
 function insertSort( arr ) {
     var len = arr.length,
         temp;
@@ -1194,7 +1119,7 @@ function insertSort( arr ) {
 
 #### 去除首尾空格
 
-```javascript
+``` javascript
 function removePlace( str ) {
 	var reg = /(^s*)|(s*)$/;
 
@@ -1206,7 +1131,7 @@ function removePlace( str ) {
 
 #### 统计字符数量
 
-```javascript
+``` javascript
 function charCount( str ) {
 	var obj = {},
 		len = str.length,
@@ -1287,10 +1212,15 @@ function charCount( str ) {
 ### ES 2015
 
 - 数组去重
+	- `[...new Set(arr)]`
+- 结构赋值
 - Symbol
 - Set && Map
 - Arrow Function
 - Proxy
+- Promise
+- Async && Await
+- Generator Function
 
 ### NodeJS
 
