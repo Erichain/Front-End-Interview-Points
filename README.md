@@ -798,7 +798,7 @@ request.send(null);
 
 - cookie 由服务器生成，可设置失效时间。如果是浏览器端生成的cookie，则在浏览器关闭之后失效；而localStorage除非被清除，否则永久保存，sessionStorage则在关闭浏览器或者页面之后清除
 - cookie的大小为4k左右，localStorage和sessionStorage的大小一般为5MB
-- 与服务器痛心的时候，cookie每次都会携带在http头中，但是其他两个不参与服务器通信
+- 与服务器通信的时候，cookie每次都会携带在http头中，但是其他两个不参与服务器通信
 - cookie中最好不要放置任何的明文的东西，其他两个的数据如果提交到服务器一定要校验
 
 #### 浏览器的多个标签页之间如何通信
