@@ -3,14 +3,14 @@
 
 涵盖了以下各个方面的知识:
 
-- HTML, CSS, JS基础知识
+- HTML, CSS, JS 基础知识
 - 网站性能优化知识
 - 前端项目自动化构建相关知识
 - 算法相关知识
-- 网络与HTTP协议相关知识
+- 网络与 HTTP 协议相关知识
 - 前端的安全相关知识
 - 插件编写相关知识
-- JS模块化编程相关知识
+- JS 模块化编程相关知识
 
 > 欢迎fork和star. 如果对内容什么问题, 请新建issue.
 
@@ -36,14 +36,12 @@
 - [Websocket](#Websocket)
 - [Canvas](#Canvas)
 - [Angular2](#Angular2)
-- [React && React Native](#React && React Native)
+- [React Native](#React Native)
 - [Functional Programming](#Functional Programming)
 
----
+### 关于前端是什么，以及需要学习什么，移步这里：
 
-#### 关于前端是什么，以及需要学习什么，移步这里：
-
-#### [Front-End Developer Handbook](http://www.frontendhandbook.com)
+#### [Front-End Developer Handbook](https://github.com/FrontendMasters/front-end-handbook-2017)
 
 ---
 
@@ -56,20 +54,6 @@
 - 标准模式
 	- 触发条件：
 		- `<!DOCTYPE html>`
-		- `<!-- HTML 4.01 严格型 -->
-<!DOCTYPE HTML PUBLIC"-//W3C//DTD HTML4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">`
-		- `<!-- XHTML 1.0 严格型 -->
-<!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">`
-- 准标准模式
-	- 触发条件：
-		- `<!-- HTML 4.01 过渡型 -->
-<!DOCTYPE HTMLPUBLIC "-//W3C//DTD HTML 4.01Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">`
-		- `<!-- HTML 4.01 框架集型 -->
-<!DOCTYPE HTMLPUBLIC "-//W3C//DTD HTML 4.01Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">`
-		- `<!-- XHTML 1.0 过渡型 -->
-<!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">`
-		- `<!-- XHTML 1.0 框架集型 -->
-<!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">`
 
 #### 标签语义化
 
@@ -80,8 +64,8 @@
 
 #### 块级标签，行内标签
 
-- 块级：div, ul, li, ol, table, th, tbody, tfoot, tr, pre, fieldset, form, h1-6, p等
-- a, abbr, b, br, code, em, img, input, label, select, textarea, strong等
+- 块级：div, ul, li, ol, table, th, tbody, tfoot, tr, pre, fieldset, form, h1-6, p 等
+- 行内：a, abbr, b, br, code, em, img, input, label, select, textarea, strong 等
 
 #### 替换元素和非替换元素
 
@@ -90,56 +74,74 @@
 - 非替换元素
 	- 大多数标签属于非替换元素，这部分标签把标签里的内容直接告诉浏览器显示出来
 
-#### meta标签
+#### meta 标签
 
-- 如何在不使用JS的情况下刷新页面(http-equiv="refresh", content="time")
+- 如何在不使用JS的情况下刷新页面（`http-equiv="refresh", content="time"`）
 - 设置页面缓存
 - 移动端设置
 - etc.
 
-#### HTML代码优化
+#### HTML 代码优化
 
 - 标签嵌套层级不要太深，标签尽量简洁化.如懒加载后将data属性去除
 - 大量图片的懒加载策略，以及一些元素利用ajax在onload后实行延迟加载
 - 对一些js的异步加载
 
-#### 搜索引擎优化SEO
+#### 搜索引擎优化 SEO
+
+#### 关于 HTML，CSS 的一些鲜为人知的知识
+
+1、对于 `box-sizing`，最好将其设置为 `border-box`，这样，设置了宽高再设置 padding 的时候，它的尺寸就不会再变化了；
+
+2、设置浮动的元素在 HTML 文档中需要排列在其余未设置浮动的元素之前，否则，浮动的元素默认就会一直在页面下方；
+
+3、设置了浮动的元素默认会被设置为块级元素；
+
+4、边距折叠只会发生在毗邻的元素上，定位或者浮动的元素不会发生边距折叠，同时，边距折叠只有纵向的，没有横向的；Flexbox 的子元素不会发生边距折叠；
+
+5、对 button 要总是设置 type 属性，form 里面的 button 如果不设置 type 的话，默认为提交按钮；
+
+6、对于 form，避免在 input 中按回车的时候提交表单，最好设置 form 的 `onsubmit` 属性为 `return false;`；
+
+7、设置 fixed 定位的元素相对于浏览器窗口，但是，设置了 absolute 定位的元素不一定相对于其设置了 relative 定位的元素进行定位，而是相对于最近的设置的 position 属性不为 `static` 的父级元素进行定位；
+
+8、CSS 属性不区分大小写；
 
 ---
 
-### CSS部分
+### CSS 部分
 
-#### 浮动，清除浮动的方法和原理(4种方法)
+#### 浮动，清除浮动的方法和原理(4 种方法)
 
-- 使用空标签设置`clear: both;`
-- 为父级元素设置`overflow: hidden;`(利用BFC的原理)
-- 使用伪元素，为要清除浮动的元素添加`.clearfix`类(推荐)
-- 使用`min-height: contain-floats;`(不推荐，兼容性不好)
+- 使用空标签设置 `clear: both;`
+- 为父级元素设置 `overflow: hidden;` (利用 BFC 的原理)
+- 使用伪元素，为要清除浮动的元素添加 `.clearfix` 类(推荐)
+- 使用 `min-height: contain-floats;` (不推荐，兼容性不好)
 
-#### CSS块级格式化上下文
+#### CSS 块级格式化上下文
 
 - 触发条件
-	- `position`属性不为`static`或者`relative`
-	- `float`属性不为none
-	- 非块级的块级元素(inline-block, table-cell)
-	- `overflow`不为`visible`
+	- `position` 属性不为 `static` 或者 `relative`
+	- `float` 属性不为 none
+	- 非块级的块级元素 (inline-block, table-cell)
+	- `overflow` 不为 `visible`
 - 特性
-	- 内部的Box会在垂直方向，从顶部开始一个接一个地放置
-	- Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生叠加
-	- BFC的区域不会与float box叠加
-	- BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然
-	- 计算BFC的高度时，浮动元素也参与计算
+	- 内部的 Box 会在垂直方向，从顶部开始一个接一个地放置
+	- Box 垂直方向的距离由 margin 决定。属于同一个 BFC 的两个相邻 Box 的 margin 会发生叠加
+	- BFC 的区域不会与 float box 叠加
+	- BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然
+	- 计算 BFC 的高度时，浮动元素也参与计算
 - 用处
-	- 解决margin边距叠加问题。为元素单独创建一个BFC来防止外边距的折叠
+	- 解决 margin 边距叠加问题。为元素单独创建一个 BFC 来防止外边距的折叠
 	- 布局
-	- 清除浮动。为包含浮动元素的container创建BFC来清除浮动
+	- 清除浮动。为包含浮动元素的 container 创建 BFC 来清除浮动
 
-#### 盒子模型(IE盒子模型的区别)
+#### 盒子模型（IE 盒子模型的区别）
 
-- 总宽度 ＝  margin＋padding＋border＋content，IE的盒子模型的宽度不计padding和border
-- css3的`box-sizing`属性，详见https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
-	- content-box，border和padding不计算入width之内
-	- border-box，border和padding计算入width之内
+- 总宽度 ＝ margin＋padding＋border＋content，IE 的盒子模型的宽度不计padding 和 border
+- css3 的 `box-sizing` 属性，详见https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+	- content-box，border 和 padding 不计算入 width 之内
+	- border-box，border 和 padding 计算入 width 之内
 
 #### 定位
 
@@ -151,10 +153,7 @@
 - 可继承的样式
 	- `font-size` `font-family` `color` `text-indent`
 
-#### z-index属性
-
-- [理解 CSS 的 z-index 属性](https://segmentfault.com/a/1190000000460664)
-
+#### z-index 属性
 
 #### CSS sprite
 
@@ -162,26 +161,23 @@
 
 #### 布局模型
 
-- 双飞翼布局
-- 圣杯布局
-- 两列布局
-- 三列布局
+- 两列(三种)和三列布局(五种方式)
+	- [Columns-Layout](http://codepen.io/Erichain/pen/mOZNxE)
 - 弹性布局
 - 流式布局
 - 瀑布流布局
 - 多列布局等高
 
-#### CSS优先级
+#### CSS 优先级
 
 - 行内样式 > 内联样式 > 外部样式，ID > Class > Element
-- 设置了`!important`的样式优先级更高
+- 设置了 `!important` 的样式优先级更高
 
 #### Flexbox
 
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
-#### 各个单位的区别(px, em, rem, 百分比, vw, vh, vmax, vmin)
-
+#### 各个单位的区别（px, em, rem, 百分比, vw, vh, vmax, vmin）
 - [Understanding Font sizing in CSS: em – px – pt – percent – rem](https://www.narga.net/understanding-font-sizing-in-css-em-px-pt-percent-rem/)
 - [REM vs EM – The Great Debate](http://zellwk.com/blog/rem-vs-em/?utm_source=CSS-Weekly&utm_campaign=Issue-204&utm_medium=email)
 
@@ -189,16 +185,17 @@
 
 - [CSS Center Complete](https://github.com/Erichain/css-center-complete)
 
-#### link和@import的区别
+#### link 和 @import 的区别
 
-- link属于XHTML标签，而@import是CSS提供的
-- 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载
-- @import只在IE5以上才能识别，而link是XHTML标签，无兼容问题
-- link方式的样式的权重 高于@import的权重
+- link 属于 HTML 标签，而 @import 是 CSS 提供的
+- 页面被加载的时，link 会同时被加载，而 @import 引用的 CSS 会等到页面被加载完再加载
+- @import 只在 IE5 以上才能识别，而 link 是 HTML 标签，无兼容问题
+- link 方式的样式的权重高于 @import 的权重
+- 对于 CSS 的引入，除了在预处理器中使用可以使用 @import 之外，其余都不建议使用 @import 方式；
 
-#### 如何将div与图片设置等宽，inline-block元素之间的空隙如何解决
+#### 如何将 div 与图片设置等宽，inline-block 元素之间的空隙如何解决
 
-- 设置父元素`font-size`为0，再对里面的文字单独设置`font-size`
+- 设置父元素 `font-size` 为 0，再对里面的文字单独设置 `font-size`
 - 全兼容的样式解决方法
 
 ``` css
@@ -217,23 +214,21 @@
 }
 ```
 
-#### CSS优化
+#### CSS 优化
 
 -  嵌套层级不要太深，一般三层最多
--  css解析从右向左，所以最右边的应该是相对少一点
--  html用了base64的img的话，并不会缓存起来，可以将这个base64的图片放在css文件里，css会缓存，图片就缓存起来了
--  尽量不用后代元素选择器，最右边的一层不要是标签，尤其是像div这种非常常用的标签
--  多使用css的继承，而不是每一次都书写时都全部重写一遍。写多个css属性时，能连在一起写的就连在一起写
+-  css 解析从右向左，所以最右边的应该是相对少一点
+-  html 用了 base64 的 img 的话，并不会缓存起来，可以将这个 base64 的图片放在 css 文件里，css 会缓存，图片就缓存起来了
+-  尽量不用后代元素选择器，最右边的一层不要是标签，尤其是像 div 这种非常常用的标签
+-  多使用 css 的继承，而不是每一次都书写时都全部重写一遍。写多个 css 属性时，能连在一起写的就连在一起写
 
 #### 预处理器
 
 - Sass
-	- Ruby Sass 与 Lib Sass 的区别
 - Less
 - Stylus
-- PostCSS
 
-#### CSS 规范，模块化
+#### CSS 命名规范
 
 - OOCSS
 - BEM
@@ -241,27 +236,31 @@
 
 [An Overview Of OOCSS BEM SMACSS](http://codetheory.in/an-overview-of-oocss-bem-smacss/)
 
+#### CSS 模块化，组件化
+
+- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
+
 ---
 
-### JS部分
+### JS 部分
 
 #### 严格模式
 
 - `'use strict'`
-- 不能使用`eval()`
-- 抑制`this`的行为
-- 不允许读写`eval`和`arguments`的值
+- 不能使用 `eval()`
+- 抑制 `this` 的行为
+- 不允许写 `eval` 和 `arguments` 的值
 - 不允许意外创建全局变量
 
 #### 变量
 
-- 使用var定义的全局变量不能使用delete删除
-- 无var创建的全局变量可以使用delete删除
+- 使用 var 定义的全局变量不能使用 delete 删除
+- 无 var 创建的全局变量可以使用 delete 删除
 - 隐式类型转换
 	- 数字与字符串相加，结果为字符串
 	- 数字与字符串相减，结果为数字
-	- 比较变量的是否相同时，要采用`===`，`==`会发生隐式类型转换
-	- NaN与任何变量不相等
+	- 比较变量的是否相同时，要采用 `===`，`==` 会发生隐式类型转换
+	- NaN 与任何变量不相等
 
 #### 类型检测
 
@@ -270,25 +269,22 @@
 - `constructor`
 - `Object.prototype.toString.apply()`
 
-#### 作用域
-
-- 全局作用域
-- 函数作用域
-
 #### 对象
 
 - `hasOwnProperty, isPrototypeOf, propertyIsEnumerable`
-- 配置属性(`configurable, enumerable, writable, value`)
+- 配置属性 (`configurable, enumerable, writable, value`)
 - 特性
-	- 扩展: `isExtensible`, `preventExtensions`(是否可以添加新的属性)
-	- 密封:  `isSealed`, `seal`(是否可以删除属性，是否可以配置属性)
-	- 冻结:  `isFrozen`, `freeze`(所有属性是否可读可写)
+	- 扩展: `isExtensible`, `preventExtensions` (是否可以添加新的属性)
+	- 密封: `isSealed`, `seal` (是否可以删除属性，是否可以配置属性)
+	- 冻结: `isFrozen`, `freeze` (所有属性是否可读可写)
 - 定义属性
 	- `defineProperty`, `defineProperties`
 
 #### 数组
 
 - 数组的类型检测
+	- Array.isArray()
+	- Object.prototype.toString.call(ARRAY)
 - 数组的方法
 	- `slice()`
 	- `map()`
@@ -302,7 +298,7 @@
 	- 概念：部分求值（Partial Evaluation），是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术
 
 ``` javascript
-function currying( fn ) {
+function currying(fn) {
     var args = Array.prototype.slice.call(arguments, 1);
     return function () {
         var newArgs = args.concat(Array.prototype.slice.call(arguments));
@@ -310,22 +306,30 @@ function currying( fn ) {
     }
 }
 ```
- 
-- arguments对象
-- JS函数不存在重载，后定义的函数会覆盖先定义的函数
+- JS 函数不存在重载，后定义的函数会覆盖先定义的函数
+- 高阶函数(HOF)
+	- 接受一个函数作为参数，并返回一个函数
 - 函数调用模式
 	- 方法调用
 	- 函数调用
 	- 构造器调用
-	- apply调用
+	- apply 调用
 
-#### `new`操作符的原理
+#### `new` 操作符的原理
 
-使用`new`关键字来创建实例的时候，原理如下：
+使用 `new` 关键字来创建实例的时候，原理如下：
 
-- 首先，在构造函数内部使用`Object.create(constructor.prototype)`创建一个对象继承自构造函数
-- 然后，将这个对象引用到`this`上
-- 最后，返回`this`
+- 首先，在构造函数内部使用 `Object.create(constructor.prototype)` 创建一个对象继承自构造函数
+- 然后，将这个对象引用到 `this` 上
+- 最后，返回 `this`
+
+``` javascript
+function newFunc(ctor) {
+	let proto = Object.create(ctor.prototype);
+	this = proto;
+	return this;
+}
+```
 
 #### 闭包
 
@@ -341,14 +345,14 @@ function currying( fn ) {
 	- 回调函数
 	- 创建私有变量和公有变量
 - 特性
-- 经典例子：列表点击，弹出每一个的index
+- 经典例子：列表点击，弹出每一个的 index
 
 ``` javascript
 /* 错误做法 */
 var elems = document.getElementById('links').getElementsByTagName('li');
 
-for ( var i = 0; i < elems.length; i++ ) {
-	elems[i].addEventListener('click', function ( event ) {
+for (var i = 0; i < elems.length; i++) {
+	elems[i].addEventListener('click', function (event) {
         event.preventDefault();
         alert(i);
     }, false);
@@ -359,88 +363,32 @@ for ( var i = 0; i < elems.length; i++ ) {
 /* 正确的做法，使用闭包 */
 var elems = document.getElementById('links').getElementsByTagName('li');
 
-for ( var i = 0; i < elems.length; i++ ) {
-	(function ( index ) {
-    	elems[i].addEventListener('click', function ( event ) {
+for (var i = 0; i < elems.length; i++) {
+	(function (index) {
+    	elems[i].addEventListener('click', function (event) {
         	event.preventDefault();
             alert(index);
         }, false);
     
     })( i );
 }
+
+// 或者使用 ES6 的 let
+var elems = document.getElementById('links').getElementsByTagName('li');
+
+for (let i = 0; i < elems.length; i++) {
+   	elems[i].addEventListener('click', function (event) {
+       	event.preventDefault();
+        alert(index);
+    }, false);
+}
 ```
 
 #### this
 
-- 函数的`this`的值永远绑定在调用此函数的对象上
-- 可以使用`apply`，`call`或者`bind`改变`this`值的指向
+- 函数的 `this` 的值永远绑定在调用此函数的对象上
+- 可以使用 `apply`，`call` 或者 `bind` 改变 `this` 值的指向
 
-#### 对象创建的模式和方法及区别
-
-- 工厂模式
-
-``` javascript
-/* 缺点：无法检测对象的类型 */
-var createPerson = function ( name, age, job ) {
-	var o = new Object();
-	o.name = name;
-	o.age = age;
-	o.job = job;
-
-	return o;
-};
-
-var person1 = createPerson('Erichain', 21, 'Web');
-```
-
-- 构造函数模式
-
-``` javascript
-/* 缺点：每个方法要在每个实例上重新创建一遍 */
-var Person = function ( name, age, job ) {
-	this.name = name;
-	this.age = age;
-	this.job = job;
-}
-
-var person1 = new Person('Erichain', 21, 'Web');
-```
-
-- 原型模式
-
-``` javascript
-var Person = function () {};
-
-Person.prototype = {
-	constructor: Person, // 如果这个属性十分重要的话
-	name: 'Erichain',
-	age: 21,
-	job: 'web'
-};
-var person1 = new Person();
-```
-
-- 组合构造函数原型模式
-- 动态原型模式
-
-``` javascript
-var Person = function ( name, age, job ) {
-	this.name = name;
-	this.age = age;
-	this.job = job;
-
-	if ( typeof this.sayName !== 'function' ) {
-		Person.prototype.sayName = function () {
-			alert( this.name );
-		}
-	}
-};
-```
-
-- 寄生构造函数模式
-	- 除了使用`new`来实例化外，与工厂模式没区别
-	- 不能依赖`instanceof`来确定对象类型，一般不建议使用
-- 稳妥构造函数模式
 
 #### 原型和继承
 
@@ -448,7 +396,7 @@ var Person = function ( name, age, job ) {
 - 借用构造函数
 
 ``` javascript
-function Person( name ) {
+function Person(name) {
 	this.name = name;
 }
 
@@ -466,28 +414,21 @@ function man() {
 	- `Object.create`创建的对象直接从他的第一个参数继承，而`new Object`所创建的对象是从对象的原型上继承
 	- 使用`Object.create`，可以创建一个不继承于任何东西的对象，但是，如果设置`someConstructor.prototype = null`，那么，这个新创建的对象会继承自`Object.prototype`
 
-#### 回调函数
-
 #### 变量提升，函数声明提升
 
 - 函数声明优于变量声明
 - 函数声明会覆盖变量声明，但是不会覆盖变量赋值
 
-#### IIFE(立即执行函数)
+#### IIFE (立即执行函数)
 
 - 在闭包中保存变量状态
 - 模块化
-- IIFE和自执行函数的区别
-- IIFE的几种表示方法
+- IIFE 和自执行函数的区别
+- IIFE 的几种表示方法
 
 ``` javascript
 (function () {})();
 (function () {}());
-
-!function () { /* code */ } ();
-~function () { /* code */ } ();
--function () { /* code */ } ();
-+function () { /* code */ } ();
 ```
 
 #### 事件
@@ -496,41 +437,37 @@ function man() {
 	- 事件捕获
 	- 处于目标
 	- 事件冒泡
-- 事件对象(IE的区别)
+- 事件对象(IE 的区别)
 - 跨浏览器事件处理函数
 
 ``` javascript
 var EventUtil = {
-    getEvent: function ( event ) {
+    getEvent: function (event) {
         return event ? event : window.event;
     },
-    getTarget: function ( event ) {
+    getTarget: function (event) {
         return event.target || event.srcElement;
     },
-    addHandler: function ( elem, type, handler ) {
-        if ( elem.addEventListener ) {
+    addHandler: function (elem, type, handler) {
+        if (elem.addEventListener) {
             elem.addEventListener(type, handler, false);
-        }
-        else if ( elem.attachEvent ) {
+        } else if (elem.attachEvent) {
             elem.attachEvent('on' + type, handler);
-        }
-        else {
+        } else {
             elem['on' + type] = handler;
         }
     },
-    preventDefault: function ( event ) {
-        if ( event.preventDefault ) {
+    preventDefault: function (event) {
+        if (event.preventDefault) {
             event.preventDefault();
-        }
-        else {
+        } else {
             event.returnValue = false;
         }
     },
     stopPropagation: function ( event ) {
-        if ( event.stopPropagation ) {
+        if (event.stopPropagation) {
             event.stopPropagation();
-        }
-        else {
+        } else {
             event.cancelable = true;
         }
     }
@@ -552,7 +489,7 @@ var EventUtil = {
 var links = document.getElementById('links');
 
 // 使用之前定义的跨浏览器事件处理程序
-EventUtil.addHandler(links, 'click', function ( event ) {
+EventUtil.addHandler(links, 'click', function (event) {
     var target = EventUtil.getTarget(event);
     event = EventUtil.getEvent(event);
 
@@ -570,18 +507,18 @@ EventUtil.addHandler(links, 'click', function ( event ) {
 });
 ```
 
-- 事件函数的参数(注意`addEventListener()`的最后一个参数，如果为false表示在冒泡阶段获取事件，如果为true，表示在事件捕获阶段获取事件)
+- 事件函数的参数(注意 `addEventListener()` 的最后一个参数，如果为 false 表示在冒泡阶段获取事件，如果为  true，表示在事件捕获阶段获取事件)
 
-#### call, apply, bind(手动实现)
+#### call, apply, bind (手动实现)
 
 - `call(obj, args)`, `apply(obj, array)`
-- `call`与`apply`支持低版本浏览器，`bind`只支持高版本浏览器
-- `bind`原生代码实现
+- `call` 与 `apply` 支持低版本浏览器，`bind` 只支持高版本浏览器
+- `bind` 原生代码实现
 
 ``` javascript
-if ( !Function.prototype.bind ) {
-    Function.prototype.bind = function ( oThis ) {
-        if ( typeof this !== 'function') {
+if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+        if (typeof this !== 'function') {
             throw new Error('What is trying to be bound is not callable');
         }
 
@@ -595,7 +532,7 @@ if ( !Function.prototype.bind ) {
                 )
             };
 
-        if ( this.prototype ) {
+        if (this.prototype) {
             fNOP.prototype = this.prototype;
         }
 
@@ -609,13 +546,13 @@ if ( !Function.prototype.bind ) {
 
 #### BOM
 
-- `window`对象
-- `location`对象
-- `screen`对象
-- `navigator`对象
-	- 检测插件`navigator.plugins`
-	- 检测用户代理`navigator.userAgent`
-- `history`对象
+- `window` 对象
+- `location` 对象
+- `screen` 对象
+- `navigator` 对象
+	- 检测插件 `navigator.plugins`
+	- 检测用户代理 `navigator.userAgent`
+- `history` 对象
 
 #### promise
 
@@ -653,28 +590,28 @@ if ( !Function.prototype.bind ) {
 	- element.classList.contains
 	- element.classList.toggle
 - 元素遍历
-	- `childElementCount`子元素数量
-	- `firstElementChild`第一个子元素: `firstChild`的元素版
-	- `lastElementChild`最后一个子元素: `lastChild`的元素版
-	- `previousElementSibling`->`previousSibling`的元素版
-	- `nextElementSibling`->`nextSibling`的元素版
+	- `childElementCount` 子元素数量
+	- `firstElementChild` 第一个子元素: `firstChild` 的元素版
+	- `lastElementChild` 最后一个子元素: `lastChild` 的元素版
+	- `previousElementSibling`->`previousSibling` 的元素版
+	- `nextElementSibling`->`nextSibling` 的元素版
 	- 遍历方法
 		- `document.createNodeIterator(root, whatToShow, filter)`参见https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
 		- `document.createTreeWalker(root, whatToShow, filter, expandEntityReferences, currentNode)`参见https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
 
 #### 性能优化
 
-- 操作DOM的时候一定要缓存变量，避免发生大量的重排重绘
-- 异步加载Javascript文件
-	- 使用`document.write()`
-	- 动态改变已有script标签的`src`属性
-	- 使用DOM方法动态创建script元素
-	- 使用Ajax获取脚本内容再加载
-	- 在script标签中使用`defer`以及`async`属性
+- 操作 DOM 的时候一定要缓存变量，避免发生大量的重排重绘
+- 异步加载 JavaScript 文件
+	- 使用 `document.write()`
+	- 动态改变已有 script 标签的 `src` 属性
+	- 使用 DOM 方法动态创建 script 元素
+	- 使用 Ajax 获取脚本内容再加载
+	- 在 script 标签中使用 `defer` 以及 `async` 属性
 	- 按需加载
 - 合并文件
 - 合理使用二进制
-- CDN加速，原理
+- CDN 加速，原理
 - 图片懒加载
 	- [懒加载——网页图片的加载技术](https://segmentfault.com/a/1190000003881643)
 	- [Lazy Load Plugin for jQuery](https://github.com/tuupola/jquery_lazyload)
@@ -685,6 +622,7 @@ if ( !Function.prototype.bind ) {
 	- [HTML5 Prefetch](https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d)
 - 函数节流
 	- [浅谈函数节流](http://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=402737833&idx=2&sn=c051cfa8a5ea025da9129295d666743a&scene=0#wechat_redirect)
+- 函数式，抽象，组件复用，减少无用代码
 
 #### 垃圾回收
 
@@ -708,19 +646,14 @@ function () {
 - setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏
 - 循环引用
 
-#### 优雅降级和渐进增强
-
-- 优雅降级：Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。由于IE独特的盒模型布局问题，针对不同版本的IE的hack实践过优雅降级了,为那些无法支持功能的浏览器增加候选方案，使之在旧式浏览器上以某种形式降级体验却不至于完全失效
-- 渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能,向页面增加无害于基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用
-
-####  JSON
+#### JSON
 
 - `JSON.stringify()` json序列化为字符串
 - `JSON.parse()` 将类JSON的字符串转化为JSON对象
 
-#### XMLHttpRequest对象
+#### XMLHttpRequest 对象
 
-- 一段比较完整的使用原生Javascript实现ajax请求方法
+- 一段比较完整的使用原生 JavaScript 实现 ajax 请求方法
 
 ``` javascript
 function createRequestObject() {
@@ -749,7 +682,7 @@ request.open('POST', url, true);
 request.send(null);
 ```
 
-#### 使用Javascript计算两个日期的时间差
+#### 使用 JavaScript 计算两个日期的时间差
 
 - [JavaScript: DateDiff & DateMeasure: Calculate days, hours, minutes, seconds between two Dates](https://gist.github.com/remino/1563963)
 
@@ -757,19 +690,13 @@ request.send(null);
 
 - [Performance Tools](https://css-tricks.com/performance-tools/)
 
-#### 代码审查工具
-
-- JSHint
-- JSLint
-- ESLint(针对ECMAScript 2015)
-
 #### 代码压缩
 
 - JSMin
 - YUI Compressor
 - Gzip
 
-#### Javascript原生函数使用
+#### JavaScript 原生函数使用
 
 - [You-Dont-Need-jQuery](https://github.com/Erichain/You-Dont-Need-jQuery)
 
@@ -778,6 +705,10 @@ request.send(null);
 - [how does Array.prototype.slice.call() work?](http://stackoverflow.com/questions/7056925/how-does-array-prototype-slice-call-work)
 
 #### RESTful
+
+#### 尾递归
+
+- [尾调用优化](http://es6.ruanyifeng.com/#docs/function#尾调用优化)
 
 ---
 
@@ -796,10 +727,10 @@ request.send(null);
 
 #### sessionStorage，cookie，localStorage
 
-- cookie 由服务器生成，可设置失效时间。如果是浏览器端生成的cookie，则在浏览器关闭之后失效；而localStorage除非被清除，否则永久保存，sessionStorage则在关闭浏览器或者页面之后清除
-- cookie的大小为4k左右，localStorage和sessionStorage的大小一般为5MB
-- 与服务器通信的时候，cookie每次都会携带在http头中，但是其他两个不参与服务器通信
-- cookie中最好不要放置任何的明文的东西，其他两个的数据如果提交到服务器一定要校验
+- cookie 由服务器生成，可设置失效时间。如果是浏览器端生成的 cookie，则在浏览器关闭之后失效；而 localStorage 除非被清除，否则永久保存，sessionStorage 则在关闭浏览器或者页面之后清除
+- cookie 的大小为 4k 左右，localStorage 和 sessionStorage 的大小一般为5MB
+- 与服务器通信的时候，cookie 每次都会携带在 http 头中，但是其他两个不参与服务器通信
+- cookie 中最好不要放置任何的明文的东西，其他两个的数据如果提交到服务器一定要校验
 
 #### 浏览器的多个标签页之间如何通信
 
@@ -813,37 +744,33 @@ request.send(null);
 
 ### 前端安全
 
-- 防止XSS(跨站点脚本)攻击
-- 防止CSRF(跨站点伪造请求攻击)
-- 防止跨iframe攻击
+- 防止 XSS (跨站点脚本)攻击
+	- [XSS Prevention Rules](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet#XSS_Prevention_Rules)
+- 防止 CSRF (跨站点伪造请求攻击)
+	- [CSRF Specific Defense](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#CSRF_Specific_Defense)
+- 防止跨 iframe 攻击
 
 ---
 
 ### 构建系统
 
-### webpack
+### Webpack
 
 - css loader 与 style loader 的区别
+- 减少 Webpack build 时间
+- DllPlugin，HappyPack 的使用
 
-### Rollup
+#### npm 与 bower 的区别
 
-#### npm与bower的区别
+- [bower 与 npm 的不同点](https://github.com/Erichain/Front-End-Note/blob/master/前端自动化/diffBetweenBower%26Npm.md)
 
-- [bower与npm的不同点](https://github.com/Erichain/Front-End-Note/blob/master/前端自动化/diffBetweenBower%26Npm.md)
-
-#### gulp流与管道的概念
+#### gulp 流与管道的概念
 
 - Unix流
 - 管道
 	- 管道是一个固定大小的缓冲区
 	- 从管道读数据是一次性操作，数据一旦被读，它就从管道中被抛弃，释放空间以便写更多的数据
 	- 可以把一个进程的标准输出流与另一个进程的标准输入流连接起来
-
-#### 打包后静态资源路径的修改
-
-#### gulp和grunt的区别
-
-- [前端工程的构建工具对比 Gulp vs Grunt](https://segmentfault.com/a/1190000002491282)
 
 #### 测试工具
 
@@ -860,31 +787,32 @@ request.send(null);
 
 #### 同源策略
 
-- 同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议。 指一段脚本只能读取来自同一来源的窗口和文档的属性
+- 同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议。指一段脚本只能读取来自同一来源的窗口和文档的属性
 
-#### 跨域处理(方法和区别)
+#### 跨域处理 CORS (方法和区别)
 
 - JSONP
 - `document.domain`
 - `window.name`
-- HTML5的`window.postMessage`和`window.onmessage`
+- HTML5 的 `window.postMessage` 和 `window.onmessage`
 
-#### HTTP基本知识
+#### HTTP 基本知识
 
 - [前端进阶--让你升级的网络知识](http://mp.weixin.qq.com/s?__biz=MjM5OTkwOTA5Mw==&mid=409908127&idx=1&sn=56a1110d6c22571c04ce13e889aeac87&scene=0#wechat_redirect)
 - 三次握手
 	- 客户端发起连接试探
 	- 服务端接收到试探请求，向客户端发送确认消息
 	- 客户端得到服务端的确认消息之后，再次向服务端发送确认消息
-- 一次完整的http请求是怎么样的
+- 四次挥手
+- 一次完整的 http 请求是怎么样的
 	- 域名解析
-	- TCP三次握手
-	- 发起http请求
-	- 服务器端响应http请求，客户端得到html代码
-	- 浏览器解析html代码，并请求html代码中的资源
+	- TCP 三次握手
+	- 发起 http 请求
+	- 服务器端响应 http 请求，客户端得到 html 代码
+	- 浏览器解析 html 代码，并请求 html 代码中的资源
 	- 浏览器对页面进行渲染呈现给用户
 - Get 与 Post 的区别
-	- [99%的人都理解错了HTTP中GET与POST的区别](http://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&mid=100000054&idx=1&sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd&utm_source=tuicool&utm_medium=referral)
+	- [99%的人都理解错了 HTTP 中 GET 与 POST 的区别](http://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&mid=100000054&idx=1&sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd&utm_source=tuicool&utm_medium=referral)
 
 ---
 
@@ -893,15 +821,14 @@ request.send(null);
 #### jQuery
 
 - [jQuery Tips Everyone Should Know](https://github.com/Erichain/jquery-tips-everyone-should-know)
-- 如何组织jQuery项目的代码结构
+- 如何组织 jQuery 项目的代码结构
 	- [Best Practice to Organize Javascript Library & CSS Folder Structure](http://stackoverflow.com/questions/24199004/best-practice-to-organize-javascript-library-css-folder-structure)
 
 #### Bootstrap，插件原理
 
 - 栅格布局实现原理
-- `.img-responsive`实现原理
 - 内联表单实现原理
-- Bootstrap组件实现原理
+- Bootstrap 组件实现原理
 
 #### AngularJS 1.x
 
@@ -938,7 +865,7 @@ request.send(null);
 		- 降低渲染的数据数量
 		- 数据扁平化
 
-### Vue
+#### Vue
 
 - `v-if`与`v-show`的区别
 	- `v-show`控制节点的`display`属性，`v-if`为true的时候节点才会存在于DOM中
@@ -948,6 +875,20 @@ request.send(null);
 	- 如何在两个同级的 component 之间通信
 - Vuex
 - 源码阅读
+
+#### Angular 与 Vue 的区别
+
+#### React
+
+- Virtual DOM 如何实现？
+- 生命周期
+- 性能优化，如何减少不必要的更新
+- 思想
+- 组件之间通信，数据流动
+- Pure Component
+- `setState` 的用法，优点缺点
+- `Container Component` 和 `Presentational Component`
+- Redux 思想
 
 ---
 
@@ -987,15 +928,13 @@ function clone( Obj ) {
                 buf[i] = clone(Obj[i]);   
             }   
             return buf;   
-        }
-        else if ( Obj instanceof Object ) {   
+        } else if ( Obj instanceof Object ) {   
             buf = {};  //创建一个空对象 
             for ( var k in Obj ) {  //为这个对象添加新的属性 
                 buf[k] = clone(Obj[k]);   
             }   
             return buf;   
-        }
-        else {   
+        } else {   
             return Obj;   
         }   
     }  
@@ -1077,21 +1016,27 @@ function quickSort( arr ) {
 - 冒泡排序
 
 ``` javascript
-function bubbleSort( arr ) {
-    var len = arr.length,
-        temp;
+function bubbleSort(numSeries) {
+    if (numSeries.length < 2) {
+        return numSeries;
+    }
+    let len = numSeries.length;
 
-    for ( var i = 0; i < len - 1; i ++ ) {
-        for ( var j = 0; j < len - 1 - i; j++ ) {
-            if ( arr[j] > arr[j+1] ) {
-                temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+    for (let i = 0; i < len - 1; i++) {
+        for (let j = i; j < len - i - 1; j++) {
+            if (numSeries[j] > numSeries[j + 1]) {
+                [
+                    numSeries[j],
+                    numSeries[j + 1]
+                ] = [
+                    numSeries[j + 1],
+                    numSeries[j]
+                ];
             }
         }
     }
 
-    return arr;
+    return numSeries;
 }
 ```
 
@@ -1129,6 +1074,46 @@ function removePlace( str ) {
 }
 ```
 
+#### 阶乘
+
+``` javascript
+// 普通递归方式
+function factorial(n) {
+    if (n === 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+// 尾递归方式
+function factorial(n, result) {
+    if (n === 1) {
+        return 1;
+    }
+    return factorial(n - 1, n * result);
+}
+```
+
+#### Fibonacci 数列
+
+``` javascript
+// 普通递归方式
+function fibonacci(n) {
+    if (n <=1) {
+        return 1;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// 尾递归方式
+function fibonacci1(n, ac = 1, ac2 = 1) {
+    if (n <=1) {
+        return 1;
+    }
+    return fibonacci1(n - 1, ac2, ac + ac2);
+}
+```
+
 #### 统计字符数量
 
 ``` javascript
@@ -1162,21 +1147,29 @@ function charCount( str ) {
 
 ### 插件编写
 
-> 关于插件编写，可参考：[jQuery插件库](http://www.jq22.com)
+> 关于某些插件编写，可参考：[jQuery插件库](http://www.jq22.com)
 
-#### 焦点轮播图
+#### 焦点轮播图 Carousel
 
-#### 弹窗效果
+#### 网页弹出层 Modal
 
 #### 多级菜单
 
-#### tab切换
+#### Tab 切换
 
 #### Lightbox
 
+#### 模板引擎
+
+#### 路由
+
+#### 数据双向绑定
+
+#### 拖动
+
 ---
 
-### Javascript模块化
+### JavaScript 模块化
 
 #### CommonJS
 
@@ -1197,13 +1190,13 @@ function charCount( str ) {
 - 对于依赖的模块延迟执行
 - 使用`define(function ( require, exports, module ) {})`加载模块
 
-#### UMD(通用模块定义，Universal Module Definition)
+#### UMD (通用模块定义，Universal Module Definition)
 
 - 同时支持 AMD 和 CommonJS 特性
 
 ---
 
-### Javascript设计模式
+### JavaScript 设计模式
 
 - [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
 
@@ -1213,7 +1206,7 @@ function charCount( str ) {
 
 - 数组去重
 	- `[...new Set(arr)]`
-- 结构赋值
+- 解构赋值
 - Symbol
 - Set && Map
 - Arrow Function
@@ -1234,11 +1227,19 @@ function charCount( str ) {
 
 ### Angular2
 
-### React && React Native
+### React Native
 
 ### Functional Programming
 
 ### Git
+
+### Docker
+
+### Nginx
+
+### CI
+
+### Deploy
 
 ## Contribution
 
