@@ -235,6 +235,10 @@ function currying(fn) {
 	- 构造器调用
 	- apply 调用
 
+#### 作用域
+
+> JavaScript 的作用域链是怎么工作的？
+
 #### `new` 操作符的原理
 
 使用 `new` 关键字来创建实例的时候，原理如下：
@@ -511,6 +515,9 @@ request.send(null);
 
 - [尾调用优化](http://es6.ruanyifeng.com/#docs/function#尾调用优化)
 
+> 尾递归的原理是什么？为什么能够达到性能优化？
+> 所有的函数都能进行尾递归优化吗？尾递归优化的条件是什么？
+
 ---
 
 ### 浏览器部分
@@ -572,6 +579,9 @@ request.send(null);
 	- 管道是一个固定大小的缓冲区
 	- 从管道读数据是一次性操作，数据一旦被读，它就从管道中被抛弃，释放空间以便写更多的数据
 	- 可以把一个进程的标准输出流与另一个进程的标准输入流连接起来
+
+> 构建系统如何选择？
+> Webpack 和 Gulp 分别适用于什么样的项目？他们有什么区别？
 
 #### 测试工具
 
@@ -635,6 +645,14 @@ request.send(null);
 
 #### Vue
 
+> 思考：
+> 为什么要创建 Vue？
+> Vue 的设计理念和其他框架有什么区别和联系？
+> Vue 适用于什么样的项目？
+> Vue 是否能够与其他框架或者库兼容？
+> Vue 的性能怎么样？与其他框架对比呢？
+> Vue 的基本原理，生命周期？
+
 - `v-if`与`v-show`的区别
 	- `v-show`控制节点的`display`属性，`v-if`为true的时候节点才会存在于DOM中
 	- 频繁切换`v-show`较好，如果在运行时条件不大可能改变`v-if`较好
@@ -644,9 +662,15 @@ request.send(null);
 - Vuex
 - 源码阅读
 
-#### Angular 与 Vue 的区别
-
 #### React
+
+> 思考：
+> 已经有那么多的前端框架了？为什么要设计 React？
+> React 适用于什么样的项目？
+> React 的性能如何？如何进行优化？
+> React 的基本原理，生命周期？
+> Redux 的设计理念？
+> Redux 的原理？
 
 - Virtual DOM 如何实现？
 - 生命周期
@@ -657,6 +681,9 @@ request.send(null);
 - `setState` 的用法，优点缺点
 - `Container Component` 和 `Presentational Component`
 - Redux 思想
+
+> 多个框架之间如何选择？
+> React，Vue，Angular 之间的对比和联系？
 
 ---
 
