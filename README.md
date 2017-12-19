@@ -1,43 +1,5 @@
-# Front-End-Interview-Points
-个人总结的比较全面的前端面试知识点。持续更新中...
-
-涵盖了以下各个方面的知识:
-
-- HTML, CSS, JS 基础知识
-- 网站性能优化知识
-- 前端项目自动化构建相关知识
-- 算法相关知识
-- 网络与 HTTP 协议相关知识
-- 前端的安全相关知识
-- 插件编写相关知识
-- JS 模块化编程相关知识
-
-> 欢迎fork和star. 如果对内容什么问题, 请新建issue.
-
-## 目录
-
-- [关于前端是什么，以及需要学习什么，移步这里](#关于前端是什么，以及需要学习什么，移步这里)
-- [HTML 部分](#HTML部分)
-- [CSS 部分](#CSS部分)
-- [JS 部分](#JS部分)
-- [浏览器部分](#浏览器部分)
-- [前端安全](#前端安全)
-- [构建系统](#自动化)
-- [网络知识部分](#网络知识部分)
-- [框架相关知识](#框架相关知识)
-- [算法](#算法)
-- [插件编写](#插件编写)
-- [Javascript模块化](#Javascript模块化)
-- [Javascript设计模式](#Javascript设计模式)
-- [ES 2015](#ES 2015)
-- [NodeJS](#NodeJS)
-- [HTML5](#HTML5)
-- [CSS3](#CSS3)
-- [Websocket](#Websocket)
-- [Canvas](#Canvas)
-- [Angular2](#Angular2)
-- [React Native](#React Native)
-- [Functional Programming](#Functional Programming)
+## 前端知识点集锦
+收集关于前端的各个方面的知识
 
 ### 关于前端是什么，以及需要学习什么，移步这里：
 
@@ -62,11 +24,6 @@
 - 方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页
 - 便于团队开发和维护，语义化更具可读性，是下一步网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化
 
-#### 块级标签，行内标签
-
-- 块级：div, ul, li, ol, table, th, tbody, tfoot, tr, pre, fieldset, form, h1-6, p 等
-- 行内：a, abbr, b, br, code, em, img, input, label, select, textarea, strong 等
-
 #### 替换元素和非替换元素
 
 - 替换元素
@@ -76,8 +33,8 @@
 
 #### meta 标签
 
-- 如何在不使用JS的情况下刷新页面（`http-equiv="refresh", content="time"`）
-- 设置页面缓存
+- 如何在不使用JS的情况下刷新页面（`<meta http-equiv="refresh" content="time">`）
+- 设置页面缓存（`<meta http-equiv="cache-control" content="no-cache">`）
 - 移动端设置
 - etc.
 
@@ -107,6 +64,14 @@
 
 8、CSS 属性不区分大小写；
 
+#### `img` 标签的跨域设置
+
+> 尤其是在使用 canvas 画图的时候会用到
+
+``` vbscript-html
+<img src="" alt="" crossOrigin="anonymous">
+```
+
 ---
 
 ### CSS 部分
@@ -115,7 +80,7 @@
 
 - 使用空标签设置 `clear: both;`
 - 为父级元素设置 `overflow: hidden;` (利用 BFC 的原理)
-- 使用伪元素，为要清除浮动的元素添加 `.clearfix` 类(推荐)
+- 使用伪元素，为要清除浮动的元素添加 `.clearfix` 类(推荐，其原理可查看 http://nicolasgallagher.com/micro-clearfix-hack/)
 - 使用 `min-height: contain-floats;` (不推荐，兼容性不好)
 
 #### CSS 块级格式化上下文
@@ -138,8 +103,8 @@
 
 #### 盒子模型（IE 盒子模型的区别）
 
-- 总宽度 ＝ margin＋padding＋border＋content，IE 的盒子模型的宽度不计padding 和 border
-- css3 的 `box-sizing` 属性，详见https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+- 总宽度 ＝ margin ＋ padding ＋ border ＋ content，IE 的盒子模型的宽度不计 padding 和 border
+- css3 的 `box-sizing` 属性，详见 https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
 	- content-box，border 和 padding 不计算入 width 之内
 	- border-box，border 和 padding 计算入 width 之内
 
@@ -148,16 +113,9 @@
 - 定位和浮动的区别
 - 什么时候使用定位，什么时候使用浮动
 
-#### 样式继承
-
-- 可继承的样式
-	- `font-size` `font-family` `color` `text-indent`
-
 #### z-index 属性
 
-#### CSS sprite
-
-- 减少请求
+- z-index 与 Stacking Context 相关，详见 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
 #### 布局模型
 
@@ -178,79 +136,54 @@
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 #### 各个单位的区别（px, em, rem, 百分比, vw, vh, vmax, vmin）
+
 - [Understanding Font sizing in CSS: em – px – pt – percent – rem](https://www.narga.net/understanding-font-sizing-in-css-em-px-pt-percent-rem/)
 - [REM vs EM – The Great Debate](http://zellwk.com/blog/rem-vs-em/?utm_source=CSS-Weekly&utm_campaign=Issue-204&utm_medium=email)
+
+#### CSS Grid
+
+- [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 #### 居中
 
 - [CSS Center Complete](https://github.com/Erichain/css-center-complete)
-
-#### link 和 @import 的区别
-
-- link 属于 HTML 标签，而 @import 是 CSS 提供的
-- 页面被加载的时，link 会同时被加载，而 @import 引用的 CSS 会等到页面被加载完再加载
-- @import 只在 IE5 以上才能识别，而 link 是 HTML 标签，无兼容问题
-- link 方式的样式的权重高于 @import 的权重
-- 对于 CSS 的引入，除了在预处理器中使用可以使用 @import 之外，其余都不建议使用 @import 方式；
 
 #### 如何将 div 与图片设置等宽，inline-block 元素之间的空隙如何解决
 
 - 设置父元素 `font-size` 为 0，再对里面的文字单独设置 `font-size`
 - 全兼容的样式解决方法
 
-``` css
+``` scss
 .finally-solve {
-    letter-spacing: -4px; /*根据不同字体字号或许需要做一定的调整*/
-    word-spacing: -4px;
-    font-size: 0;
+  // 根据不同字体字号或许需要做一定的调整
+  letter-spacing: -4px;
+  word-spacing: -4px;
+  font-size: 0;
 }
+
 .finally-solve li {
-    font-size: 16px;
-    letter-spacing: normal;
-    word-spacing: normal;
-    display:inline-block;
-    *display: inline;
-    zoom:1;
+  font-size: 16px;
+  letter-spacing: normal;
+  word-spacing: normal;
+  display:inline-block;
+  *display: inline;
+  zoom:1;
 }
 ```
 
-#### CSS 优化
+#### CSS 工程化
 
--  嵌套层级不要太深，一般三层最多
--  css 解析从右向左，所以最右边的应该是相对少一点
--  html 用了 base64 的 img 的话，并不会缓存起来，可以将这个 base64 的图片放在 css 文件里，css 会缓存，图片就缓存起来了
--  尽量不用后代元素选择器，最右边的一层不要是标签，尤其是像 div 这种非常常用的标签
--  多使用 css 的继承，而不是每一次都书写时都全部重写一遍。写多个 css 属性时，能连在一起写的就连在一起写
-
-#### 预处理器
-
-- Sass
-- Less
-- Stylus
-
-#### CSS 命名规范
-
-- OOCSS
-- BEM
-- SMACSS
+- [OOCSS](http://oocss.org/)
+- [BEM](http://getbem.com/)
+- [SMACSS](https://smacss.com/)
+- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
+- [styled-components](https://www.styled-components.com/)
 
 [An Overview Of OOCSS BEM SMACSS](http://codetheory.in/an-overview-of-oocss-bem-smacss/)
 
-#### CSS 模块化，组件化
-
-- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
-
 ---
 
-### JS 部分
-
-#### 严格模式
-
-- `'use strict'`
-- 不能使用 `eval()`
-- 抑制 `this` 的行为
-- 不允许写 `eval` 和 `arguments` 的值
-- 不允许意外创建全局变量
+### JavaScript 部分
 
 #### 变量
 
@@ -280,18 +213,6 @@
 - 定义属性
 	- `defineProperty`, `defineProperties`
 
-#### 数组
-
-- 数组的类型检测
-	- Array.isArray()
-	- Object.prototype.toString.call(ARRAY)
-- 数组的方法
-	- `slice()`
-	- `map()`
-	- `every()`
-	- `some()`
-	- `filter()`
-
 #### 函数
 
 - 柯里化
@@ -299,16 +220,15 @@
 
 ``` javascript
 function currying(fn) {
-    var args = Array.prototype.slice.call(arguments, 1);
-    return function () {
-        var newArgs = args.concat(Array.prototype.slice.call(arguments));
-        return fn.apply(null, newArgs);
-    }
+  const args = Array.prototype.slice.call(arguments, 1);
+  
+  return function () {
+    const newArgs = args.concat(Array.prototype.slice.call(arguments));
+    return fn.apply(null, newArgs);
+  }
 }
 ```
-- JS 函数不存在重载，后定义的函数会覆盖先定义的函数
-- 高阶函数(HOF)
-	- 接受一个函数作为参数，并返回一个函数
+- JavaScript 函数不存在重载，后定义的函数会覆盖先定义的函数
 - 函数调用模式
 	- 方法调用
 	- 函数调用
@@ -320,14 +240,14 @@ function currying(fn) {
 使用 `new` 关键字来创建实例的时候，原理如下：
 
 - 首先，在构造函数内部使用 `Object.create(constructor.prototype)` 创建一个对象继承自构造函数
-- 然后，将这个对象引用到 `this` 上
-- 最后，返回 `this`
+- 然后，将构造函数的 `this` 指向改变到创建的对象
+- 最后，返回创建的对象
 
 ``` javascript
-function newFunc(ctor) {
-	let proto = Object.create(ctor.prototype);
-	this = proto;
-	return this;
+function newFunc(ctor, ...args) {
+  let proto = Object.create(ctor.prototype);
+  ctor.call(proto, ...args);
+  return proto;
 }
 ```
 
@@ -345,50 +265,11 @@ function newFunc(ctor) {
 	- 回调函数
 	- 创建私有变量和公有变量
 - 特性
-- 经典例子：列表点击，弹出每一个的 index
-
-``` javascript
-/* 错误做法 */
-var elems = document.getElementById('links').getElementsByTagName('li');
-
-for (var i = 0; i < elems.length; i++) {
-	elems[i].addEventListener('click', function (event) {
-        event.preventDefault();
-        alert(i);
-    }, false);
-}
-```
-
-``` javascript
-/* 正确的做法，使用闭包 */
-var elems = document.getElementById('links').getElementsByTagName('li');
-
-for (var i = 0; i < elems.length; i++) {
-	(function (index) {
-    	elems[i].addEventListener('click', function (event) {
-        	event.preventDefault();
-            alert(index);
-        }, false);
-    
-    })( i );
-}
-
-// 或者使用 ES6 的 let
-var elems = document.getElementById('links').getElementsByTagName('li');
-
-for (let i = 0; i < elems.length; i++) {
-   	elems[i].addEventListener('click', function (event) {
-       	event.preventDefault();
-        alert(index);
-    }, false);
-}
-```
 
 #### this
 
 - 函数的 `this` 的值永远绑定在调用此函数的对象上
 - 可以使用 `apply`，`call` 或者 `bind` 改变 `this` 值的指向
-
 
 #### 原型和继承
 
@@ -509,38 +390,11 @@ EventUtil.addHandler(links, 'click', function (event) {
 
 - 事件函数的参数(注意 `addEventListener()` 的最后一个参数，如果为 false 表示在冒泡阶段获取事件，如果为  true，表示在事件捕获阶段获取事件)
 
-#### call, apply, bind (手动实现)
+#### call, apply, bind
 
 - `call(obj, args)`, `apply(obj, array)`
 - `call` 与 `apply` 支持低版本浏览器，`bind` 只支持高版本浏览器
-- `bind` 原生代码实现
-
-``` javascript
-if (!Function.prototype.bind) {
-    Function.prototype.bind = function (oThis) {
-        if (typeof this !== 'function') {
-            throw new Error('What is trying to be bound is not callable');
-        }
-
-        var aArgs = Array.prototype.slice.call(arguments, 1),
-            fToBound = this,
-            fNOP = function () {},
-            fBound = function () {
-                return fToBound.apply(
-                    this instanceof fNOP ? this : oThis,
-                    aArgs.concat(Array.prototype.slice.call(arguments))
-                )
-            };
-
-        if (this.prototype) {
-            fNOP.prototype = this.prototype;
-        }
-
-        fBound.prototype = new fNOP();
-        return fBound;
-    };
-}
-```
+- `bind`
 
 #### 能力检测
 
@@ -561,44 +415,6 @@ if (!Function.prototype.bind) {
 
 #### DOM 操作
 
-- 查找
-	- document.getElementById
-	- document.getElementsByTagName
-	- document.getElementsByName
-	- document.getElementsByClassName
-	- document.querySelector
-	- document.querySelectAll
-- 节点关系
-	- element.childNodes
-	- element.firstChild
-	- element.lastChild
-	- element.previousSibling
-	- element.nextSibling
-	- element.parentNode
-	- element.appendChild()
-	- element.insertBefore()
-	- element.removeChild()
-	- element.replaceChild()
-- 属性操作
-	- element.getAttribute()
-	- element.setAttribute()
-- 样式操作
-	- element.style[PROPERTY_NAME]
-	- element.classList
-	- element.classList.add
-	- element.classList.remove
-	- element.classList.contains
-	- element.classList.toggle
-- 元素遍历
-	- `childElementCount` 子元素数量
-	- `firstElementChild` 第一个子元素: `firstChild` 的元素版
-	- `lastElementChild` 最后一个子元素: `lastChild` 的元素版
-	- `previousElementSibling`->`previousSibling` 的元素版
-	- `nextElementSibling`->`nextSibling` 的元素版
-	- 遍历方法
-		- `document.createNodeIterator(root, whatToShow, filter)`参见https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-		- `document.createTreeWalker(root, whatToShow, filter, expandEntityReferences, currentNode)`参见https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-
 #### 性能优化
 
 - 操作 DOM 的时候一定要缓存变量，避免发生大量的重排重绘
@@ -607,7 +423,7 @@ if (!Function.prototype.bind) {
 	- 动态改变已有 script 标签的 `src` 属性
 	- 使用 DOM 方法动态创建 script 元素
 	- 使用 Ajax 获取脚本内容再加载
-	- 在 script 标签中使用 `defer` 以及 `async` 属性
+	- 在 script 标签中使用 `defer` 以及 `async` 属性（defer 和 async 的区别？）
 	- 按需加载
 - 合并文件
 - 合理使用二进制
@@ -639,17 +455,12 @@ function () {
 }
 ```
 
-- 标记清除
+- 标记清除，标记清除详细可查看 https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec
 
 #### 内存泄漏
 
 - setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏
 - 循环引用
-
-#### JSON
-
-- `JSON.stringify()` json序列化为字符串
-- `JSON.parse()` 将类JSON的字符串转化为JSON对象
 
 #### XMLHttpRequest 对象
 
@@ -689,16 +500,6 @@ request.send(null);
 #### 性能测试工具
 
 - [Performance Tools](https://css-tricks.com/performance-tools/)
-
-#### 代码压缩
-
-- JSMin
-- YUI Compressor
-- Gzip
-
-#### JavaScript 原生函数使用
-
-- [You-Dont-Need-jQuery](https://github.com/Erichain/You-Dont-Need-jQuery)
 
 #### `Array.prototype.slice.call()`原理
 
@@ -783,8 +584,6 @@ request.send(null);
 
 ### 网络知识部分
 
-#### Ajax
-
 #### 同源策略
 
 - 同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议。指一段脚本只能读取来自同一来源的窗口和文档的属性
@@ -814,6 +613,10 @@ request.send(null);
 - Get 与 Post 的区别
 	- [99%的人都理解错了 HTTP 中 GET 与 POST 的区别](http://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&mid=100000054&idx=1&sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd&utm_source=tuicool&utm_medium=referral)
 
+#### HTTPS
+
+#### HTTP/2
+
 ---
 
 ### 框架相关知识
@@ -829,41 +632,6 @@ request.send(null);
 - 栅格布局实现原理
 - 内联表单实现原理
 - Bootstrap 组件实现原理
-
-#### AngularJS 1.x
-
-- 双向绑定
-	- `$digest`循环
-	- dirty checking
-	- `$watch`
-- MVC
-- 独立作用域
-- 依赖注入
-- 循环监听
-- 同级控制器之间如何通信
-	- 使用`$rootScope`发送和接收
-- `ng-if`与`ng-hide/show`的区别
-	- `ng-if`为`true`的时候节点才会存在于DOM中
-	- `ng-show/hide`只是控制节点的显示和隐藏，设置`display`属性
-- `factory`，`service`与`provider`的区别和关系
-	- 使用`factory`创建的服务，是一个对象，然后，将方法和属性定义在这个对象上，在返回这个对象，就可以供外部controller调用了
-	- 使用`service`创建的服务，是使用`new`进行实例化的，所以，方法和属性要定义在`this`上，并且这个服务会自动返回`this`
-	- 使用`provider`创建的服务，是唯一可以注入到`config()`函数的服务，可以用来提供模块化的配置。并且，定义在`this`上的属性和方法，在`config`函数里才可以访问，从`this.$get()`函数里返回的属性和方法，才能被控制器所访问
-- `ng-click`是否可以使用原生函数
-	- 不可以，因为对应的方法不存在于其控制器中，除非在控制器中声明
-- `ng-repeat`数组中有相同元素的解决办法
-	- 可以添加`track by $index`
-- `$emit`，`$broadcast`和`$on`
-	- `$emit`由子级向父级广播，`$broadcast`由父级向子级广播
-- `controllerAs`与`$scope`的区别
-- AngularJS的缺点
-	- 强约束，学习成本高
-	- 不利于SEO
-	- 性能问题
-		- 减少监控项
-		- 主动设置索引
-		- 降低渲染的数据数量
-		- 数据扁平化
 
 #### Vue
 
@@ -898,90 +666,27 @@ request.send(null);
 
 - [优雅的数组降维——Javascript中apply方法的妙用](http://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=402262046&idx=1&sn=bdcdcb93392c147a7b5449bd2d639a3b&scene=0#wechat_redirect)
 
-#### 数组去重
-
-- 最简单的方法
-
-``` javascript
-function removeDuplicate( arr ) {
-    var len = arr.length,
-        temp = [];
-
-    for ( var i = 0; i < len; i+=1 ) {
-        if ( temp.indexOf(arr[i]) === -1 ) {
-            temp.push(arr[i]);
-        }
-    }
-    return temp;
-}
-```
-
 #### 对象深度复制
 
 ``` javascript
-function clone( Obj ) {   
-        var buf;   
-        if ( Obj instanceof Array ) {   
-            buf = [];  //创建一个空的数组 
-            var i = Obj.length;   
-            while ( i-- ) {   
-                buf[i] = clone(Obj[i]);   
-            }   
-            return buf;   
-        } else if ( Obj instanceof Object ) {   
-            buf = {};  //创建一个空对象 
-            for ( var k in Obj ) {  //为这个对象添加新的属性 
-                buf[k] = clone(Obj[k]);   
-            }   
-            return buf;   
-        } else {   
-            return Obj;   
-        }   
-    }  
-```
-
-#### 各个类型的复制
-
-``` javascript
-function clone( obj ) {
-	var dest;
-	
-	switch( typeof obj ) {
-		case 'undefined':
-			break;
-			
-		case 'number':
-			dest = +obj;
-			break;
-			
-		case 'string':
-			dest = obj + '';
-			break;
-			
-		case 'boolean':
-			dest = obj;
-			break;
-		
-		case 'object':
-			if ( obj instanceof Array ) {
-				dest = [];
-
-				for ( var i = 0; i < obj.length; i++ ) {
-					dest[i] = obj[i];
-				}
-			}
-			else {
-				dest = {};
-				for ( var i in obj ) {
-					dest[i] = obj[i];
-				}
-			}
-		
-		default:
-			break;
-	}
-
-	return dest;
+function clone( Obj ) {
+  var buf;
+  if ( Obj instanceof Array ) {
+    buf = [];  //创建一个空的数组 
+    var i = Obj.length;
+    while ( i-- ) {
+      buf[i] = clone(Obj[i]);
+    }
+    return buf;
+  } else if ( Obj instanceof Object ) {
+    buf = {};  //创建一个空对象 
+    for ( var k in Obj ) {  //为这个对象添加新的属性 
+      buf[k] = clone(Obj[k]);
+    }
+    return buf;
+  } else {
+    return Obj;
+  }
 }
 ```
 
@@ -991,25 +696,25 @@ function clone( obj ) {
 
 ``` javascript
 function quickSort( arr ) {
-    var left = [],
-        right = [],
-        len = arr.length,
-        breakPoint = arr[0];
+  var left = [],
+    right = [],
+    len = arr.length,
+    breakPoint = arr[0];
 
-    if ( len === 1 || len === 0 ) {
-        return arr;
+  if ( len === 1 || len === 0 ) {
+    return arr;
+  }
+
+  for ( var i = 1; i < len; i++ ) {
+    if ( arr[i] < breakPoint ) {
+      left.push(arr[i]);
     }
-
-    for ( var i = 1; i < len; i++ ) {
-        if ( arr[i] < breakPoint ) {
-            left.push(arr[i]);
-        }
-        else {
-            right.push(arr[i]);
-        }
+    else {
+      right.push(arr[i]);
     }
+  }
 
-    return quickSort(left).concat(breakPoint, quickSort(right));
+  return quickSort(left).concat(breakPoint, quickSort(right));
 }
 ```
 
@@ -1017,26 +722,26 @@ function quickSort( arr ) {
 
 ``` javascript
 function bubbleSort(numSeries) {
-    if (numSeries.length < 2) {
-        return numSeries;
-    }
-    let len = numSeries.length;
-
-    for (let i = 0; i < len - 1; i++) {
-        for (let j = i; j < len - i - 1; j++) {
-            if (numSeries[j] > numSeries[j + 1]) {
-                [
-                    numSeries[j],
-                    numSeries[j + 1]
-                ] = [
-                    numSeries[j + 1],
-                    numSeries[j]
-                ];
-            }
-        }
-    }
-
+  if (numSeries.length < 2) {
     return numSeries;
+  }
+  let len = numSeries.length;
+
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = i; j < len - i - 1; j++) {
+      if (numSeries[j] > numSeries[j + 1]) {
+        [
+          numSeries[j],
+          numSeries[j + 1]
+        ] = [
+          numSeries[j + 1],
+          numSeries[j]
+        ];
+      }
+    }
+  }
+
+  return numSeries;
 }
 ```
 
@@ -1044,21 +749,21 @@ function bubbleSort(numSeries) {
 
 ``` javascript
 function insertSort( arr ) {
-    var len = arr.length,
-        temp;
+  var len = arr.length,
+    temp;
 
-    for ( var i = 1; i < len; i++ ) {
-        var j;
-        temp = arr[i];
-        j = i;
+  for ( var i = 1; i < len; i++ ) {
+    var j;
+    temp = arr[i];
+    j = i;
 
-        while ( j > 0 && arr[j-1] > temp ) {
-            arr[j] = arr[j-1];
-            j--;
-        }
-        arr[j] = temp;
+    while ( j > 0 && arr[j-1] > temp ) {
+      arr[j] = arr[j-1];
+      j--;
     }
-    return arr;
+    arr[j] = temp;
+  }
+  return arr;
 }
 ```
 
@@ -1066,11 +771,11 @@ function insertSort( arr ) {
 
 ``` javascript
 function removePlace( str ) {
-	var reg = /(^s*)|(s*)$/;
+  var reg = /(^s*)|(s*)$/;
 
-	if ( str && typeof str === 'string' ) {
-		return str.replace(reg, '');
-	}
+  if ( str && typeof str === 'string' ) {
+    return str.replace(reg, '');
+  }
 }
 ```
 
@@ -1079,18 +784,18 @@ function removePlace( str ) {
 ``` javascript
 // 普通递归方式
 function factorial(n) {
-    if (n === 1) {
-        return 1;
-    }
-    return n * factorial(n - 1);
+  if (n === 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
 }
 
 // 尾递归方式
 function factorial(n, result) {
-    if (n === 1) {
-        return 1;
-    }
-    return factorial(n - 1, n * result);
+  if (n === 1) {
+    return 1;
+  }
+  return factorial(n - 1, n * result);
 }
 ```
 
@@ -1099,47 +804,18 @@ function factorial(n, result) {
 ``` javascript
 // 普通递归方式
 function fibonacci(n) {
-    if (n <=1) {
-        return 1;
-    }
-    return fibonacci(n - 1) + fibonacci(n - 2);
+  if (n <=1) {
+    return 1;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 // 尾递归方式
 function fibonacci1(n, ac = 1, ac2 = 1) {
-    if (n <=1) {
-        return 1;
-    }
-    return fibonacci1(n - 1, ac2, ac + ac2);
-}
-```
-
-#### 统计字符数量
-
-``` javascript
-function charCount( str ) {
-	var obj = {},
-		len = str.length,
-		i = 0;
-
-	for ( ; i < len; i++ ) {
-		var val = str.charAt(i);
-
-		if ( obj[val] && obj[val].value === val ) {
-			obj[val].count++;
-		}
-		else {
-			obj[val] = {};
-			obj[val].count = 1;
-			obj[val].value = val;
-		}
-	}
-
-	for ( var key in obj ) {
-		console.log( key + ' is ' + obj[key].count );
-	}
-
-	return obj;
+  if (n <=1) {
+    return 1;
+  }
+  return fibonacci1(n - 1, ac2, ac + ac2);
 }
 ```
 
@@ -1184,22 +860,6 @@ function charCount( str ) {
 - 推崇依赖前置
 - 对于依赖的模块提前执行
 
-#### CMD
-
-- 推崇依赖就近
-- 对于依赖的模块延迟执行
-- 使用`define(function ( require, exports, module ) {})`加载模块
-
-#### UMD (通用模块定义，Universal Module Definition)
-
-- 同时支持 AMD 和 CommonJS 特性
-
----
-
-### JavaScript 设计模式
-
-- [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
-
 ---
 
 ### ES 2015
@@ -1219,27 +879,13 @@ function charCount( str ) {
 
 ### HTML5
 
-### CSS3
-
-### Websocket
+### WebSocket
 
 ### Canvas
 
-### Angular2
-
-### React Native
-
 ### Functional Programming
 
-### Git
-
-### Docker
-
-### Nginx
-
-### CI
-
-### Deploy
+### Design Patterns
 
 ## Contribution
 
