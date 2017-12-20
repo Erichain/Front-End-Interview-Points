@@ -78,8 +78,8 @@
 
 #### 浮动，清除浮动的方法和原理(4 种方法)
 
-- 使用空标签设置 `clear: both;`
-- 为父级元素设置 `overflow: hidden;` (利用 BFC 的原理)
+- 使用空标签设置 `clear: both;`（`clear` 有哪些值可以设置？应用在什么元素上？）
+- 为父级元素设置 `overflow: hidden;` (利用 BFC 的原理，除了设置 `hidden`，还能设置其他的值吗？)
 - 使用伪元素，为要清除浮动的元素添加 `.clearfix` 类(推荐，其原理可查看 http://nicolasgallagher.com/micro-clearfix-hack/)
 - 使用 `min-height: contain-floats;` (不推荐，兼容性不好)
 
@@ -87,7 +87,7 @@
 
 - 触发条件
 	- `position` 属性不为 `static` 或者 `relative`
-	- `float` 属性不为 none
+	- `float` 属性不为 `none`
 	- 非块级的块级元素 (inline-block, table-cell)
 	- `overflow` 不为 `visible`
 - 特性
@@ -110,10 +110,15 @@
 
 #### 定位
 
-- 定位和浮动的区别
-- 什么时候使用定位，什么时候使用浮动
+> 定位和浮动的区别？
+> 什么时候使用定位，什么时候使用浮动？
+> 如何使用定位或者浮动来进行布局？有什么优点或者缺点？
+> 设置了定位或者浮动的元素对标准文档流有什么影响？
 
 #### z-index 属性
+
+> 哪些元素可以设置 z-index？
+> z-index 的层级关系是怎么样的？
 
 - z-index 与 Stacking Context 相关，详见 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
@@ -134,6 +139,9 @@
 #### Flexbox
 
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+> Flexbox 内部的元素会发生 margin collapse 吗？
+> Flexbox 的子元素可以设置 z-index 吗？
 
 #### 各个单位的区别（px, em, rem, 百分比, vw, vh, vmax, vmin）
 
@@ -181,6 +189,8 @@
 
 [An Overview Of OOCSS BEM SMACSS](http://codetheory.in/an-overview-of-oocss-bem-smacss/)
 
+> 样式文件结构如何组织？
+
 ---
 
 ### JavaScript 部分
@@ -188,12 +198,14 @@
 #### 变量
 
 - 使用 var 定义的全局变量不能使用 delete 删除
-- 无 var 创建的全局变量可以使用 delete 删除
+- 无 var 创建的全局变量可以使用 delete 删除（为什么可以删除？全局变量与 Object.prototype 有什么关系？）
 - 隐式类型转换
 	- 数字与字符串相加，结果为字符串
 	- 数字与字符串相减，结果为数字
 	- 比较变量的是否相同时，要采用 `===`，`==` 会发生隐式类型转换
 	- NaN 与任何变量不相等
+
+> 类型转换的时候，如果同时存在 `toString` 和 `valueOf` 方法，会如何处理？
 
 #### 类型检测
 
