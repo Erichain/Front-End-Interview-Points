@@ -14,8 +14,7 @@
 - 混杂模式
 	- 触发条件：不加文档类型声明
 - 标准模式
-	- 触发条件：
-		- `<!DOCTYPE html>`
+	- 触发条件：`<!DOCTYPE html>`
 
 #### 标签语义化
 
@@ -212,7 +211,7 @@
 	- 数字与字符串相加，结果为字符串
 	- 数字与字符串相减，结果为数字
 	- 比较变量的是否相同时，要采用 `===`，`==` 会发生隐式类型转换
-	- NaN 与任何变量不相等
+	- NaN 与任何变量不相等（如何判断 `NaN` 呢？）
 
 > 变量是如何初始化的？
 
@@ -412,7 +411,7 @@ const EventUtil = {
 - 事件广播
 - 事件委托
 
-```vbscript-html
+``` vbscript-html
 <ul id="links">
     <li id="link1">Link1</li>
     <li id="link2">Link2</li>
@@ -444,18 +443,6 @@ EventUtil.addHandler(links, 'click', function (event) {
 
 - 事件函数的参数(注意 `addEventListener()` 的最后一个参数，如果为 false 表示在冒泡阶段获取事件，如果为  true，表示在事件捕获阶段获取事件)
 
-#### 能力检测
-
-#### BOM
-
-- `window` 对象
-- `location` 对象
-- `screen` 对象
-- `navigator` 对象
-	- 检测插件 `navigator.plugins`
-	- 检测用户代理 `navigator.userAgent`
-- `history` 对象
-
 #### promise
 
 - [Javascript Promise 迷你书](http://liubin.org/promises-book/)
@@ -468,6 +455,16 @@ EventUtil.addHandler(links, 'click', function (event) {
 
 > promise 的 `.then` 与 setTimeout 的回调的执行顺序？
 
+> promise 有什么优缺点？
+
+#### generator
+
+> generator 用来干什么？
+> 如何使用 generator 来创建异步行为？
+> 使用 generator 实现 async 和 await？
+
+#### async and await
+
 #### JavaScript 中的 Event Loop，Job Queue 与 Task，MicroTask
 
 > 什么是 Event Loop？什么是 Job Queue？什么是 Task，什么是 MicroTask？
@@ -475,8 +472,6 @@ EventUtil.addHandler(links, 'click', function (event) {
 > Event Loop 的工作流程是怎么样的？与执行栈的关系？
 
 > Event Loop，Job，Task 的执行顺序是怎么样的？
-
-#### DOM 操作
 
 #### 性能优化
 
@@ -503,27 +498,27 @@ EventUtil.addHandler(links, 'click', function (event) {
 	- [浅谈函数节流](http://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=402737833&idx=2&sn=c051cfa8a5ea025da9129295d666743a&scene=0#wechat_redirect)
 - 函数式，抽象，组件复用，减少无用代码
 
-#### 垃圾回收
+#### 内存管理
 
 - 引用计数
 
 ``` javascript
-/* 出现循环引用的例子 */
-function () {
-	var objectA = {},
-		objectB = {};
+// 出现循环引用的例子
+function loopRef() {
+  const objectA = {};
+  const objectB = {};
 
-	objectA.someOtherObject = objectB;
-	objectB.anotherObject = objectA;
+  objectA.someOtherObject = objectB;
+  objectB.anotherObject = objectA;
 }
 ```
 
-- 标记清除，标记清除详细可查看 https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec
+- 标记清除，详细可查看 https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec
 
-#### 内存泄漏
-
-- setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏
-- 循环引用
+- 内存泄漏
+    - setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏
+    - 循环引用
+    - DOM 元素的引用可能会触发内存无法被回收
 
 #### XMLHttpRequest 对象
 
@@ -531,38 +526,30 @@ function () {
 
 ``` javascript
 function createRequestObject() {
-    if ( window.XMLHttpRequest ) {
-        return new XMLHttpRequest();
-    }
+  if ( window.XMLHttpRequest ) {
+    return new XMLHttpRequest();
+  }
 
-    // 针对IE
-    else if ( window.ActiveXObject ) {
-        return new ActiveXObject('Microsoft.XMLHTTP');
-    }
+  // 针对IE
+  else if ( window.ActiveXObject ) {
+    return new ActiveXObject('Microsoft.XMLHTTP');
+  }
 }
 
 // 请求的回调函数
 function requestCallBack() {
-    if ( request.readyState === 4 && request.status === 200 ) {
-        console.log(request.responseText);
-    }
+  if ( request.readyState === 4 && request.status === 200 ) {
+    console.log(request.responseText);
+  }
 }
 
-var request = createRequestObject();
+const request = createRequestObject();
 
 request.onreadystatechange = requestCallBack;
 // open函数的三个参数分别是请求的方法, 请求的地址, 是否异步(true表示异步)
 request.open('POST', url, true);
 request.send(null);
 ```
-
-#### 使用 JavaScript 计算两个日期的时间差
-
-- [JavaScript: DateDiff & DateMeasure: Calculate days, hours, minutes, seconds between two Dates](https://gist.github.com/remino/1563963)
-
-#### 性能测试工具
-
-- [Performance Tools](https://css-tricks.com/performance-tools/)
 
 #### `Array.prototype.slice.call()`原理
 
@@ -585,27 +572,18 @@ request.send(null);
 
 - [How browsers work](http://taligarsiel.com/Projects/howbrowserswork1.htm#Introduction)
 
-#### 各个浏览器内核
+> 渲染分为哪几个阶段？每一个阶段具体做了什么？
+> 重排和重绘的区别？
 
-- IE: Trident
-- Chrome: Webkit, Blink(now)
-- Firefox: Gecko
-- Opera: Presto
+#### 关于浏览器缓存
 
-#### sessionStorage，cookie，localStorage
-
+- [浅谈Web缓存](http://www.alloyteam.com/2016/03/discussion-on-web-caching/)
 - cookie 由服务器生成，可设置失效时间。如果是浏览器端生成的 cookie，则在浏览器关闭之后失效；而 localStorage 除非被清除，否则永久保存，sessionStorage 则在关闭浏览器或者页面之后清除
 - cookie 的大小为 4k 左右，localStorage 和 sessionStorage 的大小一般为5MB
 - 与服务器通信的时候，cookie 每次都会携带在 http 头中，但是其他两个不参与服务器通信
 - cookie 中最好不要放置任何的明文的东西，其他两个的数据如果提交到服务器一定要校验
 
-#### 浏览器的多个标签页之间如何通信
-
-- [Javascript communication between browser tabs/windows](http://stackoverflow.com/questions/4079280/javascript-communication-between-browser-tabs-windows)
-
-#### 关于浏览器缓存
-
-- [浅谈Web缓存](http://www.alloyteam.com/2016/03/discussion-on-web-caching/)
+> sessionStorage, cookie, localStorage 的适用场景？
 
 ---
 
@@ -627,13 +605,12 @@ request.send(null);
 - 减少 Webpack build 时间
 - DllPlugin，HappyPack 的使用
 
-#### npm 与 bower 的区别
-
-- [bower 与 npm 的不同点](https://github.com/Erichain/Front-End-Note/blob/master/前端自动化/diffBetweenBower%26Npm.md)
+> webpack 默认对代码的处理？
+> DllPlugin 的工作原理？
 
 #### gulp 流与管道的概念
 
-- Unix流
+- Unix 流
 - 管道
 	- 管道是一个固定大小的缓冲区
 	- 从管道读数据是一次性操作，数据一旦被读，它就从管道中被抛弃，释放空间以便写更多的数据
@@ -642,13 +619,6 @@ request.send(null);
 > 构建系统如何选择？
 > Webpack 和 Gulp 分别适用于什么样的项目？他们有什么区别？
 
-#### 测试工具
-
-- Mocha
-- Karma
-- Jasmine
-- Jest
-
 ---
 
 ### 网络知识部分
@@ -656,6 +626,8 @@ request.send(null);
 #### 同源策略
 
 - 同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议。指一段脚本只能读取来自同一来源的窗口和文档的属性
+
+> 什么是同源？
 
 #### 跨域处理 CORS (方法和区别)
 
@@ -672,7 +644,7 @@ request.send(null);
 	- 服务端接收到试探请求，向客户端发送确认消息
 	- 客户端得到服务端的确认消息之后，再次向服务端发送确认消息
 - 四次挥手
-- 一次完整的 http 请求是怎么样的
+- 一次完整的 HTTP 请求是怎么样的
 	- 域名解析
 	- TCP 三次握手
 	- 发起 http 请求
@@ -686,6 +658,14 @@ request.send(null);
 
 #### HTTP/2
 
+> HTTP/2 有哪些特性？与 HTTP/1.1 的区别与联系？
+
+#### WebSocket
+
+> WebSocket 协议是什么？
+> 如何通过原生的 WebSocket 来建立通信？
+> WebSocket 通信的 Request Header 与 HTTP 有什么区别？
+
 ---
 
 ### 框架相关知识
@@ -695,12 +675,6 @@ request.send(null);
 - [jQuery Tips Everyone Should Know](https://github.com/Erichain/jquery-tips-everyone-should-know)
 - 如何组织 jQuery 项目的代码结构
 	- [Best Practice to Organize Javascript Library & CSS Folder Structure](http://stackoverflow.com/questions/24199004/best-practice-to-organize-javascript-library-css-folder-structure)
-
-#### Bootstrap，插件原理
-
-- 栅格布局实现原理
-- 内联表单实现原理
-- Bootstrap 组件实现原理
 
 #### Vue
 
@@ -730,6 +704,7 @@ request.send(null);
 > React 的基本原理，生命周期？
 > Redux 的设计理念？
 > Redux 的原理？
+> Redux 有什么替代品？
 
 - Virtual DOM 如何实现？
 - 生命周期
@@ -743,10 +718,15 @@ request.send(null);
 
 > 多个框架之间如何选择？
 > React，Vue，Angular 之间的对比和联系？
+> 前端状态管理？
 
 ---
 
-### 算法
+### Practices
+
+#### 浏览器的多个标签页之间如何通信
+
+- [Javascript communication between browser tabs/windows](http://stackoverflow.com/questions/4079280/javascript-communication-between-browser-tabs-windows)
 
 #### 数组降维
 
@@ -864,6 +844,10 @@ function removePlace( str ) {
   }
 }
 ```
+
+#### 使用 JavaScript 计算两个日期的时间差
+
+- [JavaScript: DateDiff & DateMeasure: Calculate days, hours, minutes, seconds between two Dates](https://gist.github.com/remino/1563963)
 
 #### 阶乘
 
