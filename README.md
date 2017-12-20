@@ -111,13 +111,17 @@
 #### 定位
 
 > 定位和浮动的区别？
+
 > 什么时候使用定位，什么时候使用浮动？
+
 > 如何使用定位或者浮动来进行布局？有什么优点或者缺点？
+
 > 设置了定位或者浮动的元素对标准文档流有什么影响？
 
 #### z-index 属性
 
 > 哪些元素可以设置 z-index？
+
 > z-index 的层级关系是怎么样的？
 
 - z-index 与 Stacking Context 相关，详见 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
@@ -141,6 +145,7 @@
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 > Flexbox 内部的元素会发生 margin collapse 吗？
+
 > Flexbox 的子元素可以设置 z-index 吗？
 
 #### 各个单位的区别（px, em, rem, 百分比, vw, vh, vmax, vmin）
@@ -210,6 +215,7 @@
 	- NaN 与任何变量不相等
 
 > 变量是如何初始化的？
+
 > 类型转换的时候，如果同时存在 `toString` 和 `valueOf` 方法，会如何处理？
 
 #### 类型检测
@@ -236,6 +242,7 @@
 #### 函数
 
 > 普通函数与 arrow function 的区别？
+
 > 函数的默认参数和解构赋值的默认值工作机制？哪种情况下会采用默认值？
 
 - 柯里化
@@ -264,7 +271,9 @@ function currying(fn) {
 #### 作用域
 
 > JavaScript 的作用域链是怎么工作的？
+
 > JavaScript 的变量对象，活动对象，执行栈是怎么样的？与作用域有什么关系？
+
 > ES6 之后的版本中的作用域是什么样的？
 
 #### `new` 操作符的原理
@@ -299,6 +308,7 @@ function newFunc(ctor, ...args) {
 - 特性
 
 > 闭包函数内部的 this 值是如何变化的？
+
 > arrow function 内部的 this 值是怎么样的？
 
 #### this
@@ -338,7 +348,9 @@ function man() {
 #### ES6 Class
 
 > class 内部是如何处理原型和 this 值的绑定的？
+
 > super 的原理是什么？
+
 > static 关键字的原理？
 
 #### 变量提升，函数声明提升
@@ -351,7 +363,9 @@ function man() {
 #### 事件
 
 > 如何将事件绑定到 document 上？
+
 > React 是如何处理多个元素的事件的？
+
 > React 的事件对象和原生事件对象有什么区别？
 
 - 事件流
@@ -449,13 +463,17 @@ EventUtil.addHandler(links, 'click', function (event) {
 - https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
 
 > `.catch` 与 `.then(null, function () {})` 的区别？
+
 > 在 `.then` 中返回一个函数与直接执行一个函数的区别？
+
 > promise 的 `.then` 与 setTimeout 的回调的执行顺序？
 
 #### JavaScript 中的 Event Loop，Job Queue 与 Task，MicroTask
 
 > 什么是 Event Loop？什么是 Job Queue？什么是 Task，什么是 MicroTask？
+
 > Event Loop 的工作流程是怎么样的？与执行栈的关系？
+
 > Event Loop，Job，Task 的执行顺序是怎么样的？
 
 #### DOM 操作
