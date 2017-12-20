@@ -201,8 +201,6 @@
 
 #### 变量
 
-> 变量是如何初始化的？
-
 - 使用 var 定义的全局变量不能使用 delete 删除
 - 无 var 创建的全局变量可以使用 delete 删除（为什么可以删除？全局变量与 Object.prototype 有什么关系？）
 - 隐式类型转换
@@ -211,6 +209,7 @@
 	- 比较变量的是否相同时，要采用 `===`，`==` 会发生隐式类型转换
 	- NaN 与任何变量不相等
 
+> 变量是如何初始化的？
 > 类型转换的时候，如果同时存在 `toString` 和 `valueOf` 方法，会如何处理？
 
 #### 类型检测
@@ -236,10 +235,11 @@
 
 #### 函数
 
-> curry 的作用是什么？为什么需要 curry？
+> 普通函数与 arrow function 的区别？
+> 函数的默认参数和解构赋值的默认值工作机制？哪种情况下会采用默认值？
 
 - 柯里化
-	- 概念：部分求值（Partial Evaluation），是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术
+	- 概念：部分求值（Partial Evaluation），是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术（curry 的作用是什么？为什么需要 curry？）
 
 ``` javascript
 function currying(fn) {
@@ -265,6 +265,7 @@ function currying(fn) {
 
 > JavaScript 的作用域链是怎么工作的？
 > JavaScript 的变量对象，活动对象，执行栈是怎么样的？与作用域有什么关系？
+> ES6 之后的版本中的作用域是什么样的？
 
 #### `new` 操作符的原理
 
@@ -297,24 +298,30 @@ function newFunc(ctor, ...args) {
 	- 创建私有变量和公有变量
 - 特性
 
+> 闭包函数内部的 this 值是如何变化的？
+> arrow function 内部的 this 值是怎么样的？
+
 #### this
 
 - 函数的 `this` 的值永远绑定在调用此函数的对象上
 - 可以使用 `apply`，`call` 或者 `bind` 改变 `this` 值的指向
 
-#### 原型和继承
+#### 原型和继承以及 Class
 
 - 原型链
+	- 原型链是怎么样的？
+	- `__proto__` 属性与 `prototype` 的关系？
+	- 原型链有终点吗？终点是什么？
 - 借用构造函数
 
 ``` javascript
 function Person(name) {
-	this.name = name;
+  this.name = name;
 }
 
 function man() {
-	// 继承自Person，可以选择是否传入参数
-	Person.call(this, 'Erichain');
+  // 继承自Person，可以选择是否传入参数
+  Person.call(this, 'Erichain');
 }
 ```
 
@@ -325,25 +332,27 @@ function man() {
 - `new Object()`和`Object.create()`的区别
 	- `Object.create`创建的对象直接从他的第一个参数继承，而`new Object`所创建的对象是从对象的原型上继承
 	- 使用`Object.create`，可以创建一个不继承于任何东西的对象，但是，如果设置`someConstructor.prototype = null`，那么，这个新创建的对象会继承自`Object.prototype`
+	
+> 实例与构造函数与 Object.prototype 的原型之间的关系是怎么样的？
+	
+#### ES6 Class
+
+> class 内部是如何处理原型和 this 值的绑定的？
+> super 的原理是什么？
+> static 关键字的原理？
 
 #### 变量提升，函数声明提升
 
 - 函数声明优于变量声明
 - 函数声明会覆盖变量声明，但是不会覆盖变量赋值
 
-#### IIFE (立即执行函数)
-
-- 在闭包中保存变量状态
-- 模块化
-- IIFE 和自执行函数的区别
-- IIFE 的几种表示方法
-
-``` javascript
-(function () {})();
-(function () {}());
-```
+> ES6 还有变量提升吗？TDZ 是怎么形成的？会造成什么样的影响？
 
 #### 事件
+
+> 如何将事件绑定到 document 上？
+> React 是如何处理多个元素的事件的？
+> React 的事件对象和原生事件对象有什么区别？
 
 - 事件流
 	- 事件捕获
@@ -353,36 +362,36 @@ function man() {
 - 跨浏览器事件处理函数
 
 ``` javascript
-var EventUtil = {
-    getEvent: function (event) {
-        return event ? event : window.event;
-    },
-    getTarget: function (event) {
-        return event.target || event.srcElement;
-    },
-    addHandler: function (elem, type, handler) {
-        if (elem.addEventListener) {
-            elem.addEventListener(type, handler, false);
-        } else if (elem.attachEvent) {
-            elem.attachEvent('on' + type, handler);
-        } else {
-            elem['on' + type] = handler;
-        }
-    },
-    preventDefault: function (event) {
-        if (event.preventDefault) {
-            event.preventDefault();
-        } else {
-            event.returnValue = false;
-        }
-    },
-    stopPropagation: function ( event ) {
-        if (event.stopPropagation) {
-            event.stopPropagation();
-        } else {
-            event.cancelable = true;
-        }
+const EventUtil = {
+  getEvent(event) {
+    return event ? event : window.event;
+  },
+  getTarget(event) {
+    return event.target || event.srcElement;
+  },
+  addHandler(elem, type, handler) {
+    if (elem.addEventListener) {
+      elem.addEventListener(type, handler, false);
+    } else if (elem.attachEvent) {
+      elem.attachEvent('on' + type, handler);
+    } else {
+      elem['on' + type] = handler;
     }
+  },
+  preventDefault(event) {
+    if (event.preventDefault) {
+      event.preventDefault();
+    } else {
+      event.returnValue = false;
+    }
+  },
+  stopPropagation(event) {
+    if (event.stopPropagation) {
+      event.stopPropagation();
+    } else {
+      event.cancelable = true;
+    }
+  }
 };
 ```
 
@@ -402,30 +411,24 @@ var links = document.getElementById('links');
 
 // 使用之前定义的跨浏览器事件处理程序
 EventUtil.addHandler(links, 'click', function (event) {
-    var target = EventUtil.getTarget(event);
-    event = EventUtil.getEvent(event);
+  var target = EventUtil.getTarget(event);
+  event = EventUtil.getEvent(event);
 
-    switch ( target.id ) {
-        case 'link1':
-            // do something
-            break;
-        case 'link2':
-            // do something
-            break;
-        case 'link3':
-            // do something
-            break;
-    }
+  switch ( target.id ) {
+    case 'link1':
+      // do something
+      break;
+    case 'link2':
+      // do something
+      break;
+    case 'link3':
+      // do something
+      break;
+  }
 });
 ```
 
 - 事件函数的参数(注意 `addEventListener()` 的最后一个参数，如果为 false 表示在冒泡阶段获取事件，如果为  true，表示在事件捕获阶段获取事件)
-
-#### call, apply, bind
-
-- `call(obj, args)`, `apply(obj, array)`
-- `call` 与 `apply` 支持低版本浏览器，`bind` 只支持高版本浏览器
-- `bind`
 
 #### 能力检测
 
@@ -443,6 +446,17 @@ EventUtil.addHandler(links, 'click', function (event) {
 
 - [Javascript Promise 迷你书](http://liubin.org/promises-book/)
 - [JavaScript Promise API](http://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=402552108&idx=1&sn=b0d4d986984a45276c6bbbf386c04790&scene=0#wechat_redirect)
+- https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
+
+> `.catch` 与 `.then(null, function () {})` 的区别？
+> 在 `.then` 中返回一个函数与直接执行一个函数的区别？
+> promise 的 `.then` 与 setTimeout 的回调的执行顺序？
+
+#### JavaScript 中的 Event Loop，Job Queue 与 Task，MicroTask
+
+> 什么是 Event Loop？什么是 Job Queue？什么是 Task，什么是 MicroTask？
+> Event Loop 的工作流程是怎么样的？与执行栈的关系？
+> Event Loop，Job，Task 的执行顺序是怎么样的？
 
 #### DOM 操作
 
