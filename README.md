@@ -156,6 +156,20 @@
 
 - [CSS Center Complete](https://github.com/Erichain/css-center-complete)
 
+#### CSS 工程化
+
+- [OOCSS](http://oocss.org/)
+- [BEM](http://getbem.com/)
+- [SMACSS](https://smacss.com/)
+- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
+- [styled-components](https://www.styled-components.com/)
+
+[An Overview Of OOCSS BEM SMACSS](http://codetheory.in/an-overview-of-oocss-bem-smacss/)
+
+> 样式文件结构如何组织？
+
+**Some Questions**
+
 #### 如何将 div 与图片设置等宽，inline-block 元素之间的空隙如何解决
 
 - 设置父元素 `font-size` 为 0，再对里面的文字单独设置 `font-size`
@@ -179,23 +193,15 @@
 }
 ```
 
-#### CSS 工程化
-
-- [OOCSS](http://oocss.org/)
-- [BEM](http://getbem.com/)
-- [SMACSS](https://smacss.com/)
-- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
-- [styled-components](https://www.styled-components.com/)
-
-[An Overview Of OOCSS BEM SMACSS](http://codetheory.in/an-overview-of-oocss-bem-smacss/)
-
-> 样式文件结构如何组织？
+#### `text-overflow` 可以用来设置文本省略显示，那么，多行文本的省略显示如何设置？
 
 ---
 
 ### JavaScript 部分
 
 #### 变量
+
+> 变量是如何初始化的？
 
 - 使用 var 定义的全局变量不能使用 delete 删除
 - 无 var 创建的全局变量可以使用 delete 删除（为什么可以删除？全局变量与 Object.prototype 有什么关系？）
@@ -216,6 +222,9 @@
 
 #### 对象
 
+> 对象可以怎么创建？有哪些方式？区别是什么？可以用到什么模式？
+> 在对象创建的时候设置好属性与动态添加属性有什么区别？
+
 - `hasOwnProperty, isPrototypeOf, propertyIsEnumerable`
 - 配置属性 (`configurable, enumerable, writable, value`)
 - 特性
@@ -226,6 +235,8 @@
 	- `defineProperty`, `defineProperties`
 
 #### 函数
+
+> curry 的作用是什么？为什么需要 curry？
 
 - 柯里化
 	- 概念：部分求值（Partial Evaluation），是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术
@@ -246,10 +257,14 @@ function currying(fn) {
 	- 函数调用
 	- 构造器调用
 	- apply 调用
+- 高阶函数
+	- 高阶函数与普通函数有什么区别？
+	- 为什么需要高阶函数？
 
 #### 作用域
 
 > JavaScript 的作用域链是怎么工作的？
+> JavaScript 的变量对象，活动对象，执行栈是怎么样的？与作用域有什么关系？
 
 #### `new` 操作符的原理
 
