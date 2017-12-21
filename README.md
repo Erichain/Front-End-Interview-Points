@@ -96,7 +96,6 @@
 	- 计算 BFC 的高度时，浮动元素也参与计算
 - 用处
 	- 解决 margin 边距叠加问题。为元素单独创建一个 BFC 来防止外边距的折叠
-	- 布局
 	- 清除浮动。为包含浮动元素的 container 创建 BFC 来清除浮动
 
 #### 盒子模型（IE 盒子模型的区别）
@@ -333,13 +332,16 @@ function newFunc(ctor, ...args) {
 - 函数的 `this` 的值永远绑定在调用此函数的对象上
 - 可以使用 `apply`，`call` 或者 `bind` 改变 `this` 值的指向
 
-#### 原型和继承以及 Class
+#### 原型
 
-- 原型链
-	- 原型链是怎么样的？
-	- `__proto__` 属性与 `prototype` 的关系？
-	- 原型链有终点吗？终点是什么？
-- 借用构造函数
+- 原型链是如何工作的？
+- `__proto__` 属性与 `prototype` 的关系？
+- 原型链有终点吗？终点是什么？
+- 如何设置对象的原型？
+
+#### 继承
+
+**借用构造函数**
 
 ``` javascript
 function Person(name) {
@@ -352,13 +354,17 @@ function man() {
 }
 ```
 
-- 组合继承
-- 原型式继承
-- 寄生式继承
-- 寄生组合式继承
-- `new Object()`和`Object.create()`的区别
-	- `Object.create`创建的对象直接从他的第一个参数继承，而`new Object`所创建的对象是从对象的原型上继承
-	- 使用`Object.create`，可以创建一个不继承于任何东西的对象，但是，如果设置`someConstructor.prototype = null`，那么，这个新创建的对象会继承自`Object.prototype`
+**组合继承**
+
+**原型式继承**
+
+**寄生式继承**
+
+**寄生组合式继承**
+
+- `new Object()` 和 `Object.create()` 的区别
+	- `Object.create` 创建的对象直接从他的第一个参数继承，而 `new Object` 所创建的对象是从对象的原型上继承
+	- 使用 `Object.create`，可以创建一个不继承于任何东西的对象，但是，如果设置 `someConstructor.prototype = null`，那么，这个新创建的对象会继承自 `Object.prototype`
 	
 > 实例与构造函数与 Object.prototype 的原型之间的关系是怎么样的？
 	
@@ -369,6 +375,8 @@ function man() {
 > super 的原理是什么？
 
 > static 关键字的原理？
+
+> 属性是添加到对象的哪个地方？
 
 #### 变量提升，函数声明提升
 
@@ -385,12 +393,12 @@ function man() {
 
 > React 的事件对象和原生事件对象有什么区别？
 
-- 事件流
+- 事件流的三个阶段
 	- 事件捕获
 	- 处于目标
 	- 事件冒泡
-- 事件对象(IE 的区别)
-- 跨浏览器事件处理函数
+
+**跨浏览器事件处理函数**
 
 ``` javascript
 const EventUtil = {
@@ -426,14 +434,13 @@ const EventUtil = {
 };
 ```
 
-- 事件广播
-- 事件委托
+**事件委托**
 
 ``` vbscript-html
 <ul id="links">
-    <li id="link1">Link1</li>
-    <li id="link2">Link2</li>
-    <li id="link3">Link3</li>
+  <li id="link1">Link1</li>
+  <li id="link2">Link2</li>
+  <li id="link3">Link3</li>
 </ul>
 ```
 
@@ -478,10 +485,16 @@ EventUtil.addHandler(links, 'click', function (event) {
 #### generator
 
 > generator 用来干什么？
+
 > 如何使用 generator 来创建异步行为？
+
 > 使用 generator 实现 async 和 await？
 
+> 在 yield 后面执行另外一个 generator 是怎么工作的？
+
 #### async and await
+
+> async 函数返回值是什么？
 
 #### Set && Map
 
@@ -493,6 +506,12 @@ EventUtil.addHandler(links, 'click', function (event) {
 
 #### Decorator
 
+> 什么是 Decorator？如何使用？可以用来干什么？
+
+> 原理是什么？
+
+> 与 React 可以怎么结合？与其他框架呢？
+
 #### JavaScript 中的 Event Loop，Job Queue 与 Task，MicroTask
 
 > 什么是 Event Loop？什么是 Job Queue？什么是 Task，什么是 MicroTask？
@@ -502,6 +521,10 @@ EventUtil.addHandler(links, 'click', function (event) {
 > Event Loop，Job，Task 的执行顺序是怎么样的？
 
 #### 性能优化
+
+> React 是怎么批量更新 DOM 的？
+
+> CDN 是什么？如何应用？有什么好处？
 
 - 操作 DOM 的时候一定要缓存变量，避免发生大量的重排重绘
 - 异步加载 JavaScript 文件
@@ -658,6 +681,7 @@ request.send(null);
 	- 可以把一个进程的标准输出流与另一个进程的标准输入流连接起来
 
 > 构建系统如何选择？
+
 > Webpack 和 Gulp 分别适用于什么样的项目？他们有什么区别？
 
 ---
@@ -786,6 +810,8 @@ request.send(null);
 > Vue 的 DOM diff 与 React 的 Reconciler 有什么区别？
 
 > 前端状态管理？
+
+> MVC 与 MVVM？
 
 ---
 
