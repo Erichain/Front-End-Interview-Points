@@ -216,6 +216,10 @@
 
 ### JavaScript 部分
 
+> JavaScript 的历史发展？
+
+> 为什么要设计 JavaScript？为了解决什么问题？
+
 #### 变量
 
 - 使用 var 定义的全局变量不能使用 delete 删除
@@ -234,8 +238,7 @@
 
 - `typeof`
 - `instanceof`
-- `constructor`
-- `Object.prototype.toString.apply()`
+- `Object.prototype.toString.apply()`（在 ES6 里面这个方法是否一定准确？）
 
 #### 对象
 
@@ -478,6 +481,16 @@ EventUtil.addHandler(links, 'click', function (event) {
 
 #### async and await
 
+#### Set && Map
+
+> weak Set(Map) 与 Set(Map) 的区别？
+
+> Map 与对象的区别？
+
+> Set 与 Map 的适用场景？
+
+#### Decorator
+
 #### JavaScript 中的 Event Loop，Job Queue 与 Task，MicroTask
 
 > 什么是 Event Loop？什么是 Job Queue？什么是 Task，什么是 MicroTask？
@@ -575,6 +588,7 @@ request.send(null);
 - [尾调用优化](http://es6.ruanyifeng.com/#docs/function#尾调用优化)
 
 > 尾递归的原理是什么？为什么能够达到性能优化？
+
 > 所有的函数都能进行尾递归优化吗？尾递归优化的条件是什么？
 
 ---
@@ -586,7 +600,12 @@ request.send(null);
 - [How browsers work](http://taligarsiel.com/Projects/howbrowserswork1.htm#Introduction)
 
 > 渲染分为哪几个阶段？每一个阶段具体做了什么？
+
 > 重排和重绘的区别？
+
+> 什么情况会触发重排？什么情况会触发重绘？
+
+> 如何针对浏览器的渲染过程就进行优化？
 
 #### 关于浏览器缓存
 
@@ -610,7 +629,7 @@ request.send(null);
 
 ---
 
-### 构建系统
+### 构建工具
 
 ### Webpack
 
@@ -619,7 +638,10 @@ request.send(null);
 - DllPlugin，HappyPack 的使用
 
 > webpack 默认对代码的处理？
+
 > DllPlugin 的工作原理？
+
+> webpack 的性能可以怎么优化？
 
 #### gulp 流与管道的概念
 
@@ -666,6 +688,14 @@ request.send(null);
 	- 浏览器对页面进行渲染呈现给用户
 - Get 与 Post 的区别
 	- [99%的人都理解错了 HTTP 中 GET 与 POST 的区别](http://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&mid=100000054&idx=1&sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd&utm_source=tuicool&utm_medium=referral)
+	
+> cookie 工作机制是怎么样的？
+
+> 如何在 header 中对浏览器的缓存进行设置？
+
+> 重定向是如何工作的？
+
+> 什么是长连接和短连接？
 
 #### HTTPS
 
@@ -676,7 +706,9 @@ request.send(null);
 #### WebSocket
 
 > WebSocket 协议是什么？
+
 > 如何通过原生的 WebSocket 来建立通信？
+
 > WebSocket 通信的 Request Header 与 HTTP 有什么区别？
 
 ---
@@ -692,11 +724,17 @@ request.send(null);
 #### Vue
 
 > 思考：
+
 > 为什么要创建 Vue？
+
 > Vue 的设计理念和其他框架有什么区别和联系？
+
 > Vue 适用于什么样的项目？
+
 > Vue 是否能够与其他框架或者库兼容？
+
 > Vue 的性能怎么样？与其他框架对比呢？
+
 > Vue 的基本原理，生命周期？
 
 - `v-if`与`v-show`的区别
@@ -711,12 +749,19 @@ request.send(null);
 #### React
 
 > 思考：
+
 > 已经有那么多的前端框架了？为什么要设计 React？
+
 > React 适用于什么样的项目？
+
 > React 的性能如何？如何进行优化？
+
 > React 的基本原理，生命周期？
+
 > Redux 的设计理念？
+
 > Redux 的原理？
+
 > Redux 有什么替代品？
 
 - Virtual DOM 如何实现？
@@ -730,7 +775,11 @@ request.send(null);
 - Redux 思想
 
 > 多个框架之间如何选择？
+
 > React，Vue，Angular 之间的对比和联系？
+
+> Vue 的 DOM diff 与 React 的 Reconciler 有什么区别？
+
 > 前端状态管理？
 
 ---
@@ -945,19 +994,6 @@ function fibonacci1(n, ac = 1, ac2 = 1) {
 
 ---
 
-### ES 2015
-
-- 数组去重
-	- `[...new Set(arr)]`
-- 解构赋值
-- Symbol
-- Set && Map
-- Arrow Function
-- Proxy
-- Promise
-- Async && Await
-- Generator Function
-
 ### NodeJS
 
 ### HTML5
@@ -969,6 +1005,8 @@ function fibonacci1(n, ac = 1, ac2 = 1) {
 ### Functional Programming
 
 ### Design Patterns
+
+### Data Structure
 
 ## Contribution
 
