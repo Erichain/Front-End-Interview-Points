@@ -601,6 +601,10 @@ request.send(null);
 
 - [How browsers work](http://taligarsiel.com/Projects/howbrowserswork1.htm#Introduction)
 
+> 设置了 `display: none` 的元素节点会被渲染吗？设置了 `visible: hidden` 的元素呢？
+
+> 外部 CSS，内联 CSS，行内 CSS 的加载顺序是怎么样的？
+
 > 渲染分为哪几个阶段？每一个阶段具体做了什么？
 
 > 重排和重绘的区别？
@@ -713,6 +717,8 @@ request.send(null);
 
 > WebSocket 通信的 Request Header 与 HTTP 有什么区别？
 
+> WebSocket 的长连接和 HTTP/2 的长连接有什么区别？
+
 ---
 
 ### 框架相关知识
@@ -746,7 +752,6 @@ request.send(null);
 - `$emit`, `$broadcast`, `$dispatch` 的区别
 	- 如何在两个同级的 component 之间通信
 - Vuex
-- 源码阅读
 
 #### React
 
@@ -769,9 +774,7 @@ request.send(null);
 - Virtual DOM 如何实现？
 - 生命周期
 - 性能优化，如何减少不必要的更新
-- 思想
 - 组件之间通信，数据流动
-- Pure Component
 - `setState` 的用法，优点缺点
 - `Container Component` 和 `Presentational Component`
 - Redux 思想
@@ -946,12 +949,22 @@ function fibonacci(n) {
 
 // 尾递归方式
 function fibonacci1(n, ac = 1, ac2 = 1) {
-  if (n <=1) {
+  if (n <= 1) {
     return 1;
   }
   return fibonacci1(n - 1, ac2, ac + ac2);
 }
 ```
+
+#### 广度优先
+
+#### 深度优先
+
+#### 动态规划
+
+#### 最短路径
+
+#### 图
 
 ---
 
@@ -1008,11 +1021,13 @@ function fibonacci1(n, ac = 1, ac2 = 1) {
 
 ### Design Patterns
 
+> 各个设计模式的定义，适用场景，分别为了解决什么样的问题？
+
 ### Data Structure
 
 ## Contribution
 
-如果对内容有什么好的建议以及有新的知识点, 欢迎提交Pull Request.
+如果对内容有什么好的建议以及有新的知识点, 欢迎提交 Pull Request.
 
 ## License
 
