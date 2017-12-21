@@ -828,24 +828,25 @@ request.send(null);
 #### 对象深度复制
 
 ``` javascript
-function clone( Obj ) {
-  var buf;
-  if ( Obj instanceof Array ) {
-    buf = [];  //创建一个空的数组 
-    var i = Obj.length;
-    while ( i-- ) {
-      buf[i] = clone(Obj[i]);
+function deepClone(resource) {
+  if (Array.isArray(resource)) {
+    let dest = [];
+    let length = resource.length;
+    while (length--) {
+      console.log(length)
+      dest[length] = deepClone(resource[length]) 
     }
-    return buf;
-  } else if ( Obj instanceof Object ) {
-    buf = {};  //创建一个空对象 
-    for ( var k in Obj ) {  //为这个对象添加新的属性 
-      buf[k] = clone(Obj[k]);
-    }
-    return buf;
-  } else {
-    return Obj;
+    return dest
+  } else if (typeof resource === 'object') {
+    let dest = {} 
+    for (let key in resource) {
+      if (resource.hasOwnProperty(key)) {
+        dest[key] = deepClone(resource[key]) 
+      } 
+    } 
+    return dest
   }
+  return resource
 }
 ```
 
@@ -854,26 +855,24 @@ function clone( Obj ) {
 - 快速排序
 
 ``` javascript
-function quickSort( arr ) {
-  var left = [],
-    right = [],
-    len = arr.length,
-    breakPoint = arr[0];
-
-  if ( len === 1 || len === 0 ) {
-    return arr;
+function quickSort(list) {
+  if (list.length < 2) {
+    return list 
   }
 
-  for ( var i = 1; i < len; i++ ) {
-    if ( arr[i] < breakPoint ) {
-      left.push(arr[i]);
-    }
-    else {
-      right.push(arr[i]);
-    }
+  const base = list[0];
+  const left = []
+  const right = []
+
+  for (let item of list.slice(1)) {
+    if (item <= base) {
+      left.push(item)
+    } else {
+      right.push(item) 
+    } 
   }
 
-  return quickSort(left).concat(breakPoint, quickSort(right));
+  return quickSort(left).concat(base, quickSort(right))
 }
 ```
 
@@ -907,32 +906,36 @@ function bubbleSort(numSeries) {
 - 插入排序
 
 ``` javascript
-function insertSort( arr ) {
-  var len = arr.length,
-    temp;
+function insertSort(list) {
+  const result = list.slice();
+  const len = list.length;
+  let temp;
 
-  for ( var i = 1; i < len; i++ ) {
-    var j;
-    temp = arr[i];
+  for (let i = 1; i < len; i++) {
+    let j;
+
+    temp = result[i];
     j = i;
 
-    while ( j > 0 && arr[j-1] > temp ) {
-      arr[j] = arr[j-1];
+    while (j > 0 && arr[j - 1] > temp) {
+      result[j] = result[j - 1];
       j--;
     }
-    arr[j] = temp;
+    
+    result[j] = temp;
   }
-  return arr;
+  
+  return result;
 }
 ```
 
 #### 去除首尾空格
 
 ``` javascript
-function removePlace( str ) {
-  var reg = /(^s*)|(s*)$/;
+function removePlace(str) {
+  const reg = /(^s*)|(s*)$/;
 
-  if ( str && typeof str === 'string' ) {
+  if (str && typeof str === 'string') {
     return str.replace(reg, '');
   }
 }
