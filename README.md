@@ -198,6 +198,20 @@
 
 #### `text-overflow` 可以用来设置文本省略显示，那么，多行文本的省略显示如何设置？
 
+``` scss
+.truncate-multiple-line($fontSize: 14px, $lineCount: 3, $lineHeight: 1.4) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  max-height: calc($lineHeight * $lineCount * $fontSize);
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lineCount;
+  -webkit-box-orient: vertical;
+}
+```
+
 ---
 
 ### JavaScript 部分
