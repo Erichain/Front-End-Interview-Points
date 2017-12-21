@@ -151,6 +151,8 @@
 - [Understanding Font sizing in CSS: em – px – pt – percent – rem](https://www.narga.net/understanding-font-sizing-in-css-em-px-pt-percent-rem/)
 - [REM vs EM – The Great Debate](http://zellwk.com/blog/rem-vs-em/?utm_source=CSS-Weekly&utm_campaign=Issue-204&utm_medium=email)
 
+> rem 所相对的根元素是指哪一个元素？
+
 #### CSS Grid
 
 - [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
@@ -345,7 +347,7 @@ function Person(name) {
 }
 
 function man() {
-  // 继承自Person，可以选择是否传入参数
+  // 继承自 Person，可以选择是否传入参数
   Person.call(this, 'Erichain');
 }
 ```
@@ -572,7 +574,7 @@ function requestCallBack() {
 const request = createRequestObject();
 
 request.onreadystatechange = requestCallBack;
-// open函数的三个参数分别是请求的方法, 请求的地址, 是否异步(true表示异步)
+// open 函数的三个参数分别是请求的方法, 请求的地址, 是否异步 (true 表示异步)
 request.open('POST', url, true);
 request.send(null);
 ```
