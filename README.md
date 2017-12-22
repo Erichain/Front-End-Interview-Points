@@ -244,6 +244,7 @@
 #### 对象
 
 > 对象可以怎么创建？有哪些方式？区别是什么？可以用到什么模式？
+
 > 在对象创建的时候设置好属性与动态添加属性有什么区别？
 
 - `hasOwnProperty, isPrototypeOf, propertyIsEnumerable`
@@ -434,7 +435,7 @@ const EventUtil = {
 };
 ```
 
-**事件委托**
+**事件代理**
 
 ``` vbscript-html
 <ul id="links">
@@ -449,10 +450,10 @@ var links = document.getElementById('links');
 
 // 使用之前定义的跨浏览器事件处理程序
 EventUtil.addHandler(links, 'click', function (event) {
-  var target = EventUtil.getTarget(event);
+  const target = EventUtil.getTarget(event);
   event = EventUtil.getEvent(event);
 
-  switch ( target.id ) {
+  switch (target.id) {
     case 'link1':
       // do something
       break;
@@ -465,6 +466,8 @@ EventUtil.addHandler(links, 'click', function (event) {
   }
 });
 ```
+
+> 为什么要使用事件代理？有什么好处？
 
 - 事件函数的参数(注意 `addEventListener()` 的最后一个参数，如果为 false 表示在冒泡阶段获取事件，如果为  true，表示在事件捕获阶段获取事件)
 
@@ -493,8 +496,6 @@ EventUtil.addHandler(links, 'click', function (event) {
 > 在 yield 后面执行另外一个 generator 是怎么工作的？
 
 #### async and await
-
-> async 函数返回值是什么？
 
 #### Set && Map
 
@@ -535,8 +536,6 @@ EventUtil.addHandler(links, 'click', function (event) {
 	- 在 script 标签中使用 `defer` 以及 `async` 属性（defer 和 async 的区别？）
 	- 按需加载
 - 合并文件
-- 合理使用二进制
-- CDN 加速，原理
 - 图片懒加载
 	- [懒加载——网页图片的加载技术](https://segmentfault.com/a/1190000003881643)
 	- [Lazy Load Plugin for jQuery](https://github.com/tuupola/jquery_lazyload)
@@ -550,6 +549,8 @@ EventUtil.addHandler(links, 'click', function (event) {
 - 函数式，抽象，组件复用，减少无用代码
 
 #### 内存管理
+
+> 引用计数是怎么工作的？有什么弊端？
 
 - 引用计数
 
@@ -577,19 +578,19 @@ function loopRef() {
 
 ``` javascript
 function createRequestObject() {
-  if ( window.XMLHttpRequest ) {
+  if (window.XMLHttpRequest) {
     return new XMLHttpRequest();
   }
 
   // 针对IE
-  else if ( window.ActiveXObject ) {
+  else if (window.ActiveXObject) {
     return new ActiveXObject('Microsoft.XMLHTTP');
   }
 }
 
 // 请求的回调函数
 function requestCallBack() {
-  if ( request.readyState === 4 && request.status === 200 ) {
+  if (request.readyState === 4 && request.status === 200) {
     console.log(request.responseText);
   }
 }
