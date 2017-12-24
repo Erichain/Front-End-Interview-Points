@@ -675,6 +675,8 @@ request.send(null);
 
 #### gulp 流与管道的概念
 
+> Gulp 的工作原理
+
 - Unix 流
 - 管道
 	- 管道是一个固定大小的缓冲区
@@ -769,6 +771,10 @@ request.send(null);
 > Vue 的性能怎么样？与其他框架对比呢？
 
 > Vue 的基本原理，生命周期？
+
+> Vuex 是怎么工作的？为什么要使用 Vuex？
+
+> Vuex 与其他的状态管理工具的区别？
 
 - `v-if`与`v-show`的区别
 	- `v-show`控制节点的`display`属性，`v-if`为true的时候节点才会存在于DOM中
