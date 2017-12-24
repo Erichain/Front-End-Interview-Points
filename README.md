@@ -818,7 +818,7 @@ request.send(null);
 
 > 前端状态管理？
 
-> MVC 与 MVVM？
+> MVC 与 MVVM 与 MVP？
 
 ---
 
