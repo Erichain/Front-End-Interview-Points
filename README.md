@@ -1,6 +1,7 @@
 ## 前端知识点集锦
 收集关于前端的各个方面的知识
 
+
 ### 关于前端是什么，以及需要学习什么，移步这里：
 
 #### [Front-End Developer Handbook](https://github.com/FrontendMasters/front-end-handbook-2017)
@@ -1056,7 +1057,17 @@ function fibonacci1(n, ac = 1, ac2 = 1) {
 
 ### HTML5
 
+> HTML5 新增了哪些功能？
+
+> 为什么 HTML5 能够引起那么多的反响？
+
 ### WebSocket
+
+### Progressive Web Application
+
+> 什么是 PWA，与普通应用的区别是什么？
+
+> 它采用了什么技术？
 
 ### Canvas
 
