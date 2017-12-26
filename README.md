@@ -658,6 +658,11 @@ request.send(null);
 - 防止 CSRF (跨站点伪造请求攻击)
 	- [CSRF Specific Defense](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#CSRF_Specific_Defense)
 - 防止跨 iframe 攻击
+- DDoS 攻击
+
+> 从攻击类别的概念，分类，和结果进行说明？
+
+> 防止方式有哪些？每一种是怎么样的？
 
 ---
 
