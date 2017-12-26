@@ -342,6 +342,8 @@ function newFunc(ctor, ...args) {
 
 #### 继承
 
+> 使用 `A.prototype = B.prototype` 与 `A.prototype = new B()` 与 `A.prototype = Object.create(B)` 这三种方式实现继承有什么区别？
+
 **借用构造函数**
 
 ``` javascript
