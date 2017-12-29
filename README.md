@@ -894,28 +894,26 @@ function quickSort(list) {
 - 冒泡排序
 
 ``` javascript
-function bubbleSort(numSeries) {
-  if (numSeries.length < 2) {
-    return numSeries;
+function bubbleSort(list) {
+  if (list.length < 2) {
+    return list;
   }
-  let len = numSeries.length;
 
-  for (let i = 0; i < len - 1; i++) {
-    for (let j = i; j < len - i - 1; j++) {
-      if (numSeries[j] > numSeries[j + 1]) {
-        [
-          numSeries[j],
-          numSeries[j + 1]
-        ] = [
-          numSeries[j + 1],
-          numSeries[j]
-        ];
+  let len = list.length;
+
+  while (len) {
+    for (let i = 0; i < len - 1; i++) {
+      if (list[i] > list[i + 1]) {
+        [list[i], list[i + 1]] = [list[i + 1], list[i]];
       }
     }
+
+    len--;
   }
 
-  return numSeries;
+  return list;
 }
+```
 ```
 
 - 插入排序
