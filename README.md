@@ -919,26 +919,21 @@ function bubbleSort(list) {
 - 插入排序
 
 ``` javascript
-function insertSort(list) {
-  const result = list.slice();
-  const len = list.length;
-  let temp;
+function insertionSort(array) {
+  let length = array.length;
+  let i, j;
 
-  for (let i = 1; i < len; i++) {
-    let j;
+  for(i = 1; i < length; i++) {
+    let temp = array[i];
 
-    temp = result[i];
-    j = i;
-
-    while (j > 0 && arr[j - 1] > temp) {
-      result[j] = result[j - 1];
-      j--;
+    for(j = i - 1; j >= 0 && array[j] > temp; j--) {
+      array[j + 1] = array[j];
     }
-    
-    result[j] = temp;
+
+    array[j + 1] = temp;
   }
-  
-  return result;
+
+  return array;
 }
 ```
 
