@@ -914,7 +914,6 @@ function bubbleSort(list) {
   return list;
 }
 ```
-```
 
 - 插入排序
 
@@ -934,6 +933,32 @@ function insertionSort(array) {
   }
 
   return array;
+}
+```
+
+- 合并排序
+
+``` javascript
+function mergeSort(list) {
+  if (list.length < 2) {
+    return list
+  }
+
+  const mid = Math.floor(list.length / 2)
+  const left = mergeSort(list.slice(0, mid))
+  const right = mergeSort(list.slice(mid))
+
+  return mergeSub(left, right)
+}
+
+function mergeSub(node1, node2) {
+  const result = []
+
+  while (node1.length > 0 && node2.length > 0) {
+    result.push(node1[0] < node2[0] ? node1.shift() : node2.shift())
+  }
+
+  return result.concat(node1.length ? node1 : node2)
 }
 ```
 
