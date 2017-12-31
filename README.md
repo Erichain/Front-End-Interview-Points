@@ -826,6 +826,14 @@ request.send(null);
 
 > 前端状态管理？
 
+> - https://medium.com/@vyaron/who-needs-state-management-anyways-55e6d1c74239
+
+> Redux vs Flux vs Vuex vs RxJS
+
+> - https://edgecoders.com/the-difference-between-flux-and-redux-71d31b118c1
+> - https://medium.com/@Musclenun/redux-vs-vuex-9b682529c36
+> 
+
 > MVC 与 MVVM 与 MVP？
 
 ---
