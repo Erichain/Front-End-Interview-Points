@@ -1,7 +1,6 @@
 ## 前端知识点集锦
 收集关于前端的各个方面的知识
 
-
 ### 关于前端是什么，以及需要学习什么，移步这里：
 
 #### [Front-End Developer Handbook](https://github.com/FrontendMasters/front-end-handbook-2017)
@@ -338,6 +337,8 @@ function newFunc(ctor, ...args) {
 
 - 原型链是如何工作的？
 - `__proto__` 属性与 `prototype` 的关系？
+	- The prototype is a property on a constructor function that sets what will become the `__proto__` property on the constructed object.
+	- https://hackernoon.com/understand-nodejs-javascript-object-inheritance-proto-prototype-class-9bd951700b29
 - 原型链有终点吗？终点是什么？
 - 如何设置对象的原型？
 
@@ -647,6 +648,8 @@ request.send(null);
 - cookie 的大小为 4k 左右，localStorage 和 sessionStorage 的大小一般为5MB
 - 与服务器通信的时候，cookie 每次都会携带在 http 头中，但是其他两个不参与服务器通信
 - cookie 中最好不要放置任何的明文的东西，其他两个的数据如果提交到服务器一定要校验
+- https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching
+- https://www.keycdn.com/support/304-not-modified/
 
 > sessionStorage, cookie, localStorage 的适用场景？
 
